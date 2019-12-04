@@ -1,13 +1,15 @@
 import sys
 sys.path.append('src/dag')
 sys.path.append('src/vertices')
-import vertex,sink
+import vertex,source
 
-v2=sink.Sink('2',
+v0=source.Source('0',
   vertex.Graph('g1',{
     '0':vertex.ZmqConnector('192.168.88.88',5555),
     '1':vertex.ZmqConnector('192.168.88.88',6666),
   }),
-  ['1'],
-  '/home/pi/workspace/python/esp')
-v2.execute()
+  None,
+  '/home/pi/workspace/python/esp/data/cars',
+  '.bmp',
+  1)
+v0.execute()
