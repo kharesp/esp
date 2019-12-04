@@ -9,7 +9,7 @@ v0=source.Source('0',
     '1':vertex.ZmqConnector('192.168.88.88',6666),
   }),
   None,
-  '/home/pi/workspace/python/esp/data/cars',
+  '/home/pi/workspace/python/data/cars',
   '.bmp',
   1)
 v0.execute()
