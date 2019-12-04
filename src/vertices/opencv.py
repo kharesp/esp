@@ -58,6 +58,18 @@ class GrayScale(vertex.Vertex):
     res_str=serialize_img(grey,'.bmp')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
+class Resize(vertex.Vertex):
+  def __init__(self,vid,graph,upstream_operators):
+    super(Resize,self).__init__(vid,graph,upstream_operators)
+ 
+  def vfunction(self,update): 
+    code,idx,ts,path,img_str=update.split(',')
+    img=deserialize_img(img_str)
+    h,w,l=img.shape
+    res=cv2.resize(img,(w//2,h//2))
+    res_str=serialize_img(res,'.bmp')
+    return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
+
 class Threshold(vertex.Vertex):
   def __init__(self,vid,graph,upstream_operators):
     super(Threshold,self).__init__(vid,graph,upstream_operators)
