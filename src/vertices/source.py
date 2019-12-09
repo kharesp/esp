@@ -16,14 +16,13 @@ class Source(vertex.Vertex):
       try:
         img_files=glob.glob('%s/*%s'%(self.data_dir,self.encoding))
         for idx,img_file in enumerate(sorted(img_files)):
-          img=cv2.imread(img_file)
+          img=cv2.imread(img_file,0)
           img_str=opencv.serialize_img(img,self.encoding)
           msg_str='%d,%d,%f,%s,%s'%(rxzmq.MSG_TYPE_DATA,\
             idx,time.time(),self.vid,img_str)
           observer.on_next(msg_str)
+          print('Sent img:%d %s'%(idx,img_file))
           time.sleep(self.sleep_interval_s)
-          if idx==100:
-            break
         observer.on_completed()
       except Exception as err:
         observer.on_error(err)

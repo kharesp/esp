@@ -6,7 +6,7 @@ import vertex
 def deserialize_img(img_str):
   b64=base64.b64decode(img_str)
   arr=np.fromstring(b64,dtype=np.uint8)
-  img=cv2.imdecode(arr,1)
+  img=cv2.imdecode(arr,0)
   return img
 
 def serialize_img(img,encoding):
@@ -77,8 +77,8 @@ class Threshold(vertex.Vertex):
   def vfunction(self,update): 
     code,idx,ts,path,img_str=update.split(',')
     img=deserialize_img(img_str)
-    grey=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    thresh=cv2.adaptiveThreshold(grey,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,13,2)
+    #grey=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    thresh=cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,13,2)
     res_str=serialize_img(thresh,'.bmp')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
