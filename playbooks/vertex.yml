@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: False
+  vars:
+    - scripts_dir: /home/pi/workspace/python/esp/scripts
+  tasks:
+    - name: start vertex (detached)
+      shell: 'nohup {{ scripts_dir }}/vertex.sh {{ item.key }} "{{ item.value }}" {{ zk_connector }} {{ zk_dir }} {{ log_dir }} &'
+      with_dict: "{{ map }}"

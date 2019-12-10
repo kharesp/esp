@@ -4,6 +4,7 @@ from typing import NamedTuple,Dict
 sys.path.append('src/rxzmq')
 from rxzmq import from_topic,to_topic
 from rx.operators import do_action
+from kazoo.client import KazooClient
 
 VERTEX_TYPE_SOURCE=0
 VERTEX_TYPE_INTERMEDIATE=1
@@ -19,10 +20,17 @@ class Graph(NamedTuple):
   operators: Dict[str,ZmqConnector]
 
 class Vertex:
-  def __init__(self,vid,graph,upstream_operators=None):
+  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     self.vid=vid
     self.graph=graph
     self.count=0
+    self.log_dir=log_dir
+
+    self.zk_connector=zk_connector
+    self.zk_dir=zk_dir
+    self.zk=KazooClient(hosts=zk_connector)
+    self.zk.start()
+
     if not upstream_operators:
       self.vertex_type=VERTEX_TYPE_SOURCE
     else:
@@ -36,6 +44,8 @@ class Vertex:
       self.incoming_topic=from_topic(['%s_%s'%(graph.gid,op) for op in upstream_operators],\
         [graph.operators[op].ip_addr for op in upstream_operators],\
         [graph.operators[op].port for op in upstream_operators])
+
+    self.zk.ensure_path('%s/joined/%s/%s'%(zk_dir,graph.gid,vid))
 
   def publish(self):
     #creates an observable of data samples published by this source vertex
@@ -91,4 +101,6 @@ class Vertex:
       std_compute_time=np.std(self.compute_times)
       self.output_file.write('%f,%f\n'%(mean_compute_time,std_compute_time))
       self.output_file.close()
+    self.zk.ensure_path('%s/exited/%s/%s'%(self.zk_dir,self.graph.gid,self.vid))
+    self.zk.stop()
     self.clean_up()

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: False
+  vars:
+    - scripts_dir: /home/pi/workspace/python/esp/scripts
+  tasks:
+    - name: kill vertices
+      shell: '{{ scripts_dir }}/kill.sh'

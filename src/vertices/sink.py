@@ -4,11 +4,10 @@ import vertex
 import numpy as np
 
 class Sink(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,log_dir):
-    super(Sink,self).__init__(vid,graph,upstream_operators)
-    self.log_dir=log_dir
+  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+    super(Sink,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.path_latency=collections.defaultdict(list)
-    self.results_f=open('%s/latency_%s_%s.csv'%(log_dir,graph.gid,vid),'w')
+    self.results_f=open('%s/latency_%s_%s.csv'%(self.log_dir,graph.gid,vid),'w')
     self.results_f.write('path,latency(ms),std_dev\n')
 
   def vfunction(self,update):
