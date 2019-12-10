@@ -22,11 +22,12 @@ def parse(log_dir):
       for vertex_parameterization in inp:
         parts=vertex_parameterization.rstrip().split(';') #node;vid;vtype;upstream;rate;count
         node=parts[0]
+        hostname=metadata.node_hostname[node]
         vid=parts[1]
         vtype=parts[2]
         params=';'.join(parts[1:])
         vid_params['%s_%s'%(gid,vid)]=params
-        node_vids[node].append('%s_%s'%(gid,vid))
+        node_vids[hostname].append('%s_%s'%(gid,vid))
         if vtype!='snk':
           v_connector='%s:%s:%d'%(vid,metadata.node_ip[node],port)
           if gid in gid_connectors:
@@ -34,7 +35,7 @@ def parse(log_dir):
           else:
             gid_connectors[gid]=v_connector
           port+=1
-        v_count=+1
+        v_count+=1
       gid_vertices[gid]=v_count
 
   node_vdesc={}

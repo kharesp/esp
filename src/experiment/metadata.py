@@ -1,5 +1,5 @@
 encoding='.jpg'
-data_dir='/home/kharesp/workspace/python/esp/ocr_plates/selected_plates'
+data_dir='/home/pi/workspace/python/esp/ocr_plates/selected_plates'
 remote_log_dir='/home/pi/esp'
 
 #node hostname mapping

@@ -39,7 +39,7 @@ class Vertex:
       else:
         self.vertex_type=VERTEX_TYPE_INTERMEDIATE
       self.compute_times=[]
-      self.output_file=open('%s_%s.csv'%(graph.gid,vid),'w')
+      self.output_file=open('%s/%s_%s.csv'%(self.log_dir,graph.gid,vid),'w')
       self.output_file.write('compute latency(ms),std_dev\n')
       self.incoming_topic=from_topic(['%s_%s'%(graph.gid,op) for op in upstream_operators],\
         [graph.operators[op].ip_addr for op in upstream_operators],\
@@ -83,9 +83,12 @@ class Vertex:
 
   def execute(self):
     if self.vertex_type==VERTEX_TYPE_SOURCE:
-      self.publish().pipe(to_topic('%s_%s'%(self.graph.gid,self.vid),
-        self.graph.operators[self.vid].ip_addr,
-        self.graph.operators[self.vid].port)).subscribe()
+      self.publish().pipe(
+        to_topic('%s_%s'%(self.graph.gid,self.vid),
+          self.graph.operators[self.vid].ip_addr,
+          self.graph.operators[self.vid].port),
+        do_action(on_completed=self.shutdown),
+        ).subscribe()
     else:
       processed_stream=self.incoming_topic.pipe(self.compute())
       if self.vertex_type==VERTEX_TYPE_INTERMEDIATE:

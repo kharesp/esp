@@ -1,5 +1,5 @@
 import cv2,sys,base64
-#from openalpr import Alpr
+from openalpr import Alpr
 import numpy as np
 sys.path.append('src/dag')
 import vertex
@@ -172,12 +172,12 @@ class LPR(vertex.Vertex):
     self.alpr=Alpr('us','/etc/opanalpr/openalpr.conf','/home/pi/workspace/python/openalpr/runtime_data')
   
   def clean_up(self):
-    alpr.unload()
+    self.alpr.unload()
 
   def vfunction(self,update): 
     code,idx,ts,path,img_str=update.split(',')
     img=deserialize_img(img_str)
-    results=alpr.recognize_ndarray(img)['results']
+    results=self.alpr.recognize_ndarray(img)['results']
     recognized_lps=''
     if len(results)>0:
       for plate in results:
@@ -185,7 +185,7 @@ class LPR(vertex.Vertex):
         coords=plate['coordinates']
         x=[coord['x'] for coord in coords]
         y=[coord['y'] for coord in coords]
-        recognized_lp+='%s;%d;%d;%d;%d/'%(license_number,min(x),max(x),min(y),max(y))
+        recognized_lps+='%s;%d;%d;%d;%d/'%(license_number,min(x),max(x),min(y),max(y))
     
     res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s,%s'%(code,idx,ts,path,self.vid,res_str,recognized_lps)

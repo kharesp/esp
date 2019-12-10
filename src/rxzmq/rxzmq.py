@@ -21,7 +21,6 @@ def from_topic(topics,ip_addrs,ports):
 
       completed_count=0
       continue_polling=True
-      print('From topic ZMQ initialized')
       while continue_polling:
         data_in=dict(poller.poll())
         for idx,socket in enumerate(sockets):
@@ -54,7 +53,6 @@ def to_topic(topic,ip_addr,port):
     context=zmq.Context()
     pub_socket=context.socket(zmq.PUB)
     pub_socket.bind('tcp://*:%d'%(port))
-    print('To Topic Initialized ZMQ')
     def subscribe(observer,scheduler=None):
       def on_next(msg):
         pub_socket.send_string('%s %s'%(topic,msg))
@@ -62,10 +60,12 @@ def to_topic(topic,ip_addr,port):
         pub_socket.send_string('%s %d,%s'%(topic,MSG_TYPE_ERR,err))
         pub_socket.close()
         context.destroy()
+        observer.on_error(err)
       def on_completed():
         pub_socket.send_string('%s %d'%(topic,MSG_TYPE_END))
         pub_socket.close()
         context.destroy()
+        observer.on_completed()
       return source.subscribe(on_next,on_error,on_completed,scheduler)
     return rx.create(subscribe)
   return _publish

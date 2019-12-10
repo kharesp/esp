@@ -12,7 +12,9 @@ class Sink(vertex.Vertex):
 
   def vfunction(self,update):
     receive_ts=time.time()
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    ts=parts[2]
+    path=parts[3]
     path_latency_ms=(receive_ts-float(ts))*1000
     self.path_latency[path].append(path_latency_ms)
 

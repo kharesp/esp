@@ -7,38 +7,49 @@ from kazoo.recipe.barrier import Barrier
 
 class Experiment(object):
   def __init__(self,config_dir,zk_connector,zk_root_dir):
-    self._config_dir=config_dir
+    self.config_dir=config_dir
+    self.zk_connector=zk_connector
     self.node_vertices,self.gid_vcount=parse.parse(config_dir)
-    print(self.node_vertices)
     self.zk_root_dir=zk_root_dir
     self.zk=KazooClient(hosts=zk_connector)
     self.zk.start()
 
   def run(self):
+    start_ts=time.time()
     #kill any pre-existing vertices on hosts
+    print('Killing pre-exiting vertices...')
     self.kill()
 
     #clean logs
+    print('Deleting previous logs...')
     self.clean_logs()
    
     #configure zk tree and watches
+    print('Setting up zk tree...')
     self.configure_zk()
     self.configure_watches()
 
     #execute vertices
+    print('About to start vertices...')
     self.execute()
  
     #wait for experiment to finish
+    print('Waiting on experiment to finish...')
     self.end_barrier.wait()
+    print('Experiment has finished')
 
     #collect logs
+    print('Collecting logs...')
     self.collect_logs()
  
+    print('Summarizing results...')
     #summarize results
     self.summarize()
 
     #clean-up
     self.shutdown()
+    end_ts=time.time()
+    print('Experiment took:%f min'%((end_ts-start_ts)/(60000.0))
   
   def kill(self):
     subprocess.check_call(['ansible-playbook',\
@@ -62,8 +73,8 @@ class Experiment(object):
 
     #create graph_ids under /joined and /exited
     for gid in self.gid_vcount.keys():
-      self.zk.ensure_path('%s/joined/%s'%(self.zk_root_dir,graph_id))
-      self.zk.ensure_path('%s/exited/%s'%(self.zk_root_dir,graph_id))
+      self.zk.ensure_path('%s/joined/%s'%(self.zk_root_dir,gid))
+      self.zk.ensure_path('%s/exited/%s'%(self.zk_root_dir,gid))
 
     #create barrier paths and barriers
     self.zk.ensure_path('%s/barriers/start'%(self.zk_root_dir))
@@ -81,12 +92,10 @@ class Experiment(object):
       if event and event.type==EventType.CHILD:
         if 'joined' in event.path:
           joined_dag=event.path.split('/')[-1]
-          self.joined[joined_dag]+=+1
+          self.joined[joined_dag]=len(children)
           if (self.joined[joined_dag]==self.gid_vcount[joined_dag]):
             self.joined_count+=1
-            print('DAGS:%d have joined'%(self.joined_count))
             if (self.joined_count==len(self.gid_vcount)):
-              self.start_ts=int(time.time()*1000)
               print('All vertices have joined. Removing start barrier')
               self.start_barrier.remove()
             return False
@@ -95,11 +104,11 @@ class Experiment(object):
       if event and event.type==EventType.CHILD:
         if 'exited' in event.path:
           exited_dag=event.path.split('/')[-1]
-          self.exited[exited_dag]=+1
+          self.exited[exited_dag]=len(children)
           if (self.exited[exited_dag]==self.gid_vcount[exited_dag]):
             self.exited_count+=1
             if (self.exited_count==len(self.gid_vcount)):
-              self.end_ts=int(time.time()*1000)
+              print('All vertices have exited. Removing end barrier')
               self.end_barrier.remove()
             return False
 
@@ -118,8 +127,8 @@ class Experiment(object):
         '--extra-vars=map=%s \
         zk_connector=%s \
         zk_dir=%s \
-        log_dir=%d'%(str(vertices).replace(" ",""),\
-        self._zk_connector,self.zk_root_dir,metadata.remote_log_dir)])
+        log_dir=%s'%(str(vertices).replace(" ",""),\
+        self.zk_connector,self.zk_root_dir,metadata.remote_log_dir)])
 
   def collect_logs(self):
     pass
@@ -128,6 +137,6 @@ class Experiment(object):
     pass
 
   def shutdown(self):
-    pass
+    self.zk.stop()
 
-Experiment('log/1','localhost:2181','/test')
+Experiment('log/1','192.168.88.87:2181','/test').run()

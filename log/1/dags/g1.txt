@@ -1,4 +1,4 @@
-node;vid;vtype;upstream;rate;180
-node1;v0;src;;10;180
-node2;v1;mb;v0;10;180
-node1;v2;snk;v1;10;180
+node;vid;vtype;upstream;rate;count
+node1;v0;src;;1;20
+node4;v1;lpr;v0;1;20
+node1;v2;snk;v1;1;20
