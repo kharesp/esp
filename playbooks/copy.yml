@@ -1,0 +1,23 @@
+---
+- hosts: all
+  gather_facts: False
+  tasks:
+    - name: list all files to copy
+      shell: (find {{ src_dir }}  -type f)
+      register: files_to_copy
+      ignore_errors: yes
+    - name: print all file names
+      debug: msg={{ item }}
+      with_items: "{{ files_to_copy.stdout_lines }}"
+    - name: fetch file filtered
+      fetch: src={{ item }} dest={{ dest_dir }} flat=yes
+      with_items: "{{ files_to_copy.stdout_lines }}"
+      when:
+        - ignore is defined
+        #- "item | search(ignore)" 
+        - item.find(ignore) == -1
+    - name: fetch file
+      fetch: src={{ item }} dest={{ dest_dir }} flat=yes
+      with_items: "{{ files_to_copy.stdout_lines }}"
+      when:
+        - ignore is not defined

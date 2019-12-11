@@ -6,11 +6,12 @@ from kazoo.recipe.watchers import ChildrenWatch
 from kazoo.recipe.barrier import Barrier
 
 class Experiment(object):
-  def __init__(self,config_dir,zk_connector,zk_root_dir):
+  def __init__(self,config_dir,zk_connector,zk_root_dir,local_log_dir):
     self.config_dir=config_dir
     self.zk_connector=zk_connector
-    self.node_vertices,self.gid_vcount=parse.parse(config_dir)
     self.zk_root_dir=zk_root_dir
+    self.local_log_dir=local_log_dir
+    self.node_vertices,self.gid_vcount=parse.parse(config_dir)
     self.zk=KazooClient(hosts=zk_connector)
     self.zk.start()
 
@@ -131,7 +132,23 @@ class Experiment(object):
         self.zk_connector,self.zk_root_dir,metadata.remote_log_dir)])
 
   def collect_logs(self):
-    pass
+    subprocess.check_call(['ansible-playbook','playbooks/copy.yml',\
+      '--limit',','.join([x for x in self.node_vertices.keys()]),\
+      "--extra-vars=src_dir=%s/ \
+      dest_dir=%s/ ignore='err'"%(metadata.remote_log_dir,self.local_log_dir)])
+
+    files=[f for f in os.listdir(self.local_log_dir) if os.path.isfile('%s/%s'%(self.local_log_dir,f))]
+    for gid in self.gid_vcount.keys():
+      if not os.path.exists('%s/data/%s'%(self.local_log_dir,gid)):
+        os.makedirs('%s/data/%s'%(self.local_log_dir,gid))
+    if not os.path.exists('%s/util'%(self.local_log_dir)):
+      os.makedirs('%s/util'%(self.local_log_dir))
+    for file_name in files:
+      if file_name.startswith('util') or file_name.startswith('nw'):
+        shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/util/'%(self.local_log_dir))
+      for gid in self.gid_vcount.keys():
+        if file_name.startswith(gid):
+          shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/data/%s/'%(self.local_log_dir,graph_id))
 
   def summarize(self): 
     pass
