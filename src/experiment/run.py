@@ -1,5 +1,6 @@
-import parse,subprocess,time,os,shutil
-import metadata
+import parse,subprocess,time,os,shutil,sys
+sys.path.append('src/summarize')
+import metadata,latency,util
 from kazoo.client import KazooClient
 from kazoo.protocol.states import EventType
 from kazoo.recipe.watchers import ChildrenWatch
@@ -162,7 +163,8 @@ class Experiment(object):
           shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/data/%s/'%(self.local_log_dir,gid))
 
   def summarize(self): 
-    pass
+    latency.latency(self.local_log_dir)
+    util.process(self.local_log_dir)
 
   def shutdown(self):
     self.zk.stop()

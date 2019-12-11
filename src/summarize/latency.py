@@ -37,5 +37,3 @@ def latency(log_dir):
       of.write('vid,mean_latency,std_latency,90th_latency\n')
       for vid,summary in vid_summary.items():
         of.write('%s,%f,%f,%f\n'%(vid,summary['mean'],summary['std'],summary['90th']))
-
-latency('log/1')
