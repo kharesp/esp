@@ -40,7 +40,7 @@ class Vertex:
         self.vertex_type=VERTEX_TYPE_INTERMEDIATE
       self.compute_times=[]
       self.output_file=open('%s/%s_%s.csv'%(self.log_dir,graph.gid,vid),'w')
-      self.output_file.write('compute latency(ms),std_dev\n')
+      self.output_file.write('sample_id,latency(ms)\n')
       self.incoming_topic=from_topic(['%s_%s'%(graph.gid,op) for op in upstream_operators],\
         [graph.operators[op].ip_addr for op in upstream_operators],\
         [graph.operators[op].port for op in upstream_operators])
@@ -64,12 +64,13 @@ class Vertex:
       def subscribe(observer,scheduler=None):
         def on_next(value):
           receive_ts=time.time()
+          msg_idx=value.split(',')[1]
           r=self.vfunction(value)
           finish_ts=time.time()
           self.count+=1
+          self.compute_times.append((int(msg_idx),(finish_ts-receive_ts)*1000))
           if (self.count%DEBUG_COUNT==0):
             print('vertex:%s_%s processed sample:%d'%(self.graph.gid,self.vid,self.count))
-          self.compute_times.append((finish_ts-receive_ts)*1000)
           observer.on_next(r)
         def on_error(err):
           self.shutdown()
@@ -100,9 +101,8 @@ class Vertex:
 
   def shutdown(self):
     if self.vertex_type==VERTEX_TYPE_INTERMEDIATE or self.vertex_type==VERTEX_TYPE_SINK:
-      mean_compute_time=np.mean(self.compute_times)
-      std_compute_time=np.std(self.compute_times)
-      self.output_file.write('%f,%f\n'%(mean_compute_time,std_compute_time))
+      for (idx,l) in self.compute_times:
+        self.output_file.write('%d,%f\n'%(idx,l))
       self.output_file.close()
     self.zk.ensure_path('%s/exited/%s/%s'%(self.zk_dir,self.graph.gid,self.vid))
     self.zk.stop()
