@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: False
+  vars:
+    - scripts_dir: /home/pi/workspace/python/esp/scripts
+  tasks:
+    - name: start systat logger 
+      shell: 'nohup {{ scripts_dir }}/sysstat.sh {{ zk_connector }} {{ zk_dir }} {{ log_dir }} &'

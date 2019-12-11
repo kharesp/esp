@@ -1,4 +1,4 @@
-import parse,subprocess,time
+import parse,subprocess,time,os,shutil
 import metadata
 from kazoo.client import KazooClient
 from kazoo.protocol.states import EventType
@@ -29,6 +29,9 @@ class Experiment(object):
     print('Setting up zk tree...')
     self.configure_zk()
     self.configure_watches()
+
+    #start sysstat loggers
+    self.sysstat()
 
     #execute vertices
     print('About to start vertices...')
@@ -72,7 +75,7 @@ class Experiment(object):
     if self.zk.exists('%s/barriers'%(self.zk_root_dir)):
       self.zk.delete('%s/barriers'%(self.zk_root_dir),recursive=True)
 
-    #create graph_ids under /joined and /exited
+    #create gids under /joined and /exited
     for gid in self.gid_vcount.keys():
       self.zk.ensure_path('%s/joined/%s'%(self.zk_root_dir,gid))
       self.zk.ensure_path('%s/exited/%s'%(self.zk_root_dir,gid))
@@ -121,6 +124,14 @@ class Experiment(object):
         path='%s/exited/%s'%(self.zk_root_dir,gid),\
         func=_exited_endpoint_listener,send_event=True)
 
+  def sysstat(self):
+    subprocess.check_call(['ansible-playbook',\
+      'playbooks/sysstat.yml',\
+      '--limit',','.join([x for x in self.node_vertices.keys()]),\
+      '--extra-vars=zk_connector=%s \
+      zk_dir=%s \
+      log_dir=%s'%(self.zk_connector,self.zk_root_dir,metadata.remote_log_dir)])
+
   def execute(self):
     for node,vertices in self.node_vertices.items():
       subprocess.check_call(['ansible-playbook','playbooks/vertex.yml',\
@@ -134,8 +145,8 @@ class Experiment(object):
   def collect_logs(self):
     subprocess.check_call(['ansible-playbook','playbooks/copy.yml',\
       '--limit',','.join([x for x in self.node_vertices.keys()]),\
-      "--extra-vars=src_dir=%s/ \
-      dest_dir=%s/ ignore='err'"%(metadata.remote_log_dir,self.local_log_dir)])
+      "--extra-vars=src_dir=%s \
+      dest_dir=%s ignore='err'"%(metadata.remote_log_dir,self.local_log_dir)])
 
     files=[f for f in os.listdir(self.local_log_dir) if os.path.isfile('%s/%s'%(self.local_log_dir,f))]
     for gid in self.gid_vcount.keys():
@@ -148,7 +159,7 @@ class Experiment(object):
         shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/util/'%(self.local_log_dir))
       for gid in self.gid_vcount.keys():
         if file_name.startswith(gid):
-          shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/data/%s/'%(self.local_log_dir,graph_id))
+          shutil.move('%s/%s'%(self.local_log_dir,file_name),'%s/data/%s/'%(self.local_log_dir,gid))
 
   def summarize(self): 
     pass
@@ -156,4 +167,4 @@ class Experiment(object):
   def shutdown(self):
     self.zk.stop()
 
-Experiment('log/1','192.168.88.87:2181','/test').run()
+Experiment('log/1','192.168.88.87:2181','/test','/home/pi/workspace/python/esp/log/1').run()
