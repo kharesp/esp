@@ -168,5 +168,3 @@ class Experiment(object):
 
   def shutdown(self):
     self.zk.stop()
-
-Experiment('log/1','192.168.88.87:2181','/test','/home/pi/workspace/python/esp/log/1').run()

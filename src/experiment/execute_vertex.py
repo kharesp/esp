@@ -35,6 +35,9 @@ def execute(gid,vdesc,zk_connector,zk_dir,log_dir):
   elif vtype=='seg':
     v=opencv.Segment(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
+  elif vtype=='noop':
+    v=opencv.NoOp(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v.execute()
   elif vtype=='fib':
     v=opencv.Bogus(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()

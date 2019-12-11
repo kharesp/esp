@@ -1,4 +1,4 @@
-import cv2,sys,base64
+import cv2,sys,base64,glob,os
 from openalpr import Alpr
 import numpy as np
 sys.path.append('src/dag')
@@ -193,7 +193,12 @@ class LPR(vertex.Vertex):
 class Segment(vertex.Vertex):
   def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Segment,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
- 
+
+  def clean_up(self):
+    seg_files=glob.glob('%s/*.jpg'%(self.log_dir))
+    for seg_file in seg_files:
+      os.remove(seg_file)
+
   def vfunction(self,update): 
     parts=update.split(',')
     code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
@@ -203,7 +208,7 @@ class Segment(vertex.Vertex):
       for plate in plates:
         lp,min_x,max_x,min_y,max_y=plate.split(';')
         seg=img[min_y:max_y+1,min_x:max_x+1] 
-        cv2.imwrite('%s/%s_%s.jpg'%(self.log_dir,lp,path),seg)
+        cv2.imwrite('%s/%s_%s_%s.jpg'%(self.log_dir,lp,path,idx),seg)
         cv2.rect(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
     else:
       #dummy load since no license plates were found
