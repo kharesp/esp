@@ -132,7 +132,7 @@ class Bogus(vertex.Vertex):
       if n<=1:
         return n
       else:
-        return fib(n-1)+fib(n-2)
+        return compute(n-1)+compute(n-2)
     return compute(count)
 
   def vfunction(self,update): 
