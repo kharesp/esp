@@ -21,13 +21,13 @@ def collect_system_stats(zk_connector,zk_dir,log_dir):
 
   res=subprocess.check_output(['sadf', '-s', start_ts, '-e', end_ts, '-Uhd', '--','-ur'])
   with open('%s/util_%s.csv'%(log_dir,hostname),'w') as f:
-  for line in res.decode().split('\n'):
-    f.write(line)
+    for line in res.decode().split('\n'):
+      f.write(line+'\n')
 
   res=subprocess.check_output(['sadf', '-s', start_ts, '-e', end_ts, '-Uhd', '--', '-n','DEV'])
   with open('%s/nw_%s.csv'%(log_dir,hostname),'w') as f:
-  for line in res.decode().split('\n'):
-    f.write(line)
+    for line in res.decode().split('\n'):
+      f.write(line+'\n')
 
 
 if __name__=='__main__':

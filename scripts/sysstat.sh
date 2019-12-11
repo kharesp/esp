@@ -11,5 +11,6 @@ log_dir=$3
 cd /home/pi/workspace/python/esp
 
 mkdir -p $log_dir/util
+mkdir -p $log_dir/util/err
 
-python3.6 src/sysstat/sysstat.py $zk_connector $zk_dir $log_dir/util 
+python3.6 src/sysstat/sysstat.py $zk_connector $zk_dir $log_dir/util 1>$log_dir/util/err/sysstat.log 2>&1
