@@ -8,11 +8,14 @@ def monitor(email_id,app_password,log_dirs):
     dir_count[log_dir]=len(os.listdir(log_dir))
   print(dir_count)
 
-  s = smtplib.SMTP('smtp.gmail.com', 587) 
-  # start TLS for security 
-  s.starttls() 
-  # Authentication 
-  s.login(email_id, app_password) 
+  def send_email(subject,body):
+    s = smtplib.SMTP('smtp.gmail.com', 587) 
+    # start TLS for security 
+    s.starttls() 
+    # Authentication 
+    s.login(email_id, app_password) 
+    s.sendmail(email_id,email_id,'Subject: {}\n\n{}'.format(subject,body))
+    s.quit()
 
   iteration=0 
   while(any(dir_status.values())):
@@ -24,8 +27,7 @@ def monitor(email_id,app_password,log_dirs):
         if (updated_count==dir_count[log_dir]):
           print('Test:%s has failed'%(os.path.basename(log_dir)))
           dir_status[log_dir]=False
-          s.sendmail(email_id,email_id,\
-            'Subject: Test failed:{}\n\nPlease check.'.format(os.path.basename(log_dir)))
+          send_email('Test failed:%s'%(os.path.basename(log_dir)),'Please check')
         else:
           dir_count[log_dir]=updated_count
           print('Updated test count for %s to %d'%(os.path.basename(log_dir),updated_count))
@@ -35,9 +37,8 @@ def monitor(email_id,app_password,log_dirs):
         if True:
           updated_count=len(os.listdir(log_dir))
           update_msg+='test dir:%s count:%d\n'%(os.path.basename(log_dir),updated_count)
+      send_email('Test Update',update_msg)
       print('Sending update:\n%s'%(update_msg))
-      s.sendmail(email_id,email_id,'Subject: Test Update\n\n{}'.format(update_msg))
-  s.quit()
 
 if __name__=="__main__":
   parser=argparse.ArgumentParser(description='script to launch test monitoring script')
