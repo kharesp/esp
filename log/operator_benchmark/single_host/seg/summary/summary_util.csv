@@ -1,0 +1,2 @@
+hostname,avg_cpu(%),avg_iowait(%),avg_mem(%),avg_mem_systat(%),avg_nw(kB/sec)
+node1,2.621185,1.167867,30.263541,92.579668,1.423081

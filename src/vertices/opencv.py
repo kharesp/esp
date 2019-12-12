@@ -194,10 +194,10 @@ class Segment(vertex.Vertex):
   def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Segment,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
-  def clean_up(self):
-    seg_files=glob.glob('%s/*.jpg'%(self.log_dir))
-    for seg_file in seg_files:
-      os.remove(seg_file)
+  #def clean_up(self):
+  #  seg_files=glob.glob('%s/*.jpg'%(self.log_dir))
+  #  for seg_file in seg_files:
+  #    os.remove(seg_file)
 
   def vfunction(self,update): 
     parts=update.split(',')
@@ -208,7 +208,7 @@ class Segment(vertex.Vertex):
       for plate in plates:
         lp,min_x,max_x,min_y,max_y=plate.split(';')
         seg=img[min_y:max_y+1,min_x:max_x+1] 
-        cv2.imwrite('%s/%s_%s_%s.jpg'%(self.log_dir,lp,path,idx),seg)
+        #cv2.imwrite('%s/%s_%s_%s.jpg'%(self.log_dir,lp,path,idx),seg)
         cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
     else:
       #dummy load since no license plates were found
@@ -218,7 +218,7 @@ class Segment(vertex.Vertex):
       min_x=w//2
       max_x=min_x+100
       seg=img[min_y:max_y+1,min_x:max_x+1] 
-      cv2.imwrite('%s/none_%s.jpg'%(self.log_dir,path),seg)
+      #cv2.imwrite('%s/none_%s.jpg'%(self.log_dir,path),seg)
       cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
 
     res_str=serialize_img(img,'.jpg')
