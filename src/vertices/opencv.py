@@ -201,7 +201,10 @@ class LPR(vertex.Vertex):
         recognized_lps+='%s;%d;%d;%d;%d/'%(license_number,min(x),max(x),min(y),max(y))
     
     res_str=serialize_img(img,'.jpg')
-    return '%s,%s,%s,%s-%s,%s,%s'%(code,idx,ts,path,self.vid,res_str,recognized_lps)
+    if recognized_lps:
+      return '%s,%s,%s,%s-%s,%s,%s'%(code,idx,ts,path,self.vid,res_str,recognized_lps)
+    else:
+      return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Segment(vertex.Vertex):
   def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
