@@ -55,7 +55,7 @@ class Experiment(object):
     #clean-up
     self.shutdown()
     end_ts=time.time()
-    print('Experiment took:%f min'%((end_ts-start_ts)/(60000.0)))
+    print('Experiment took:%f min'%((end_ts-start_ts)/(60.0)))
   
   def kill(self):
     subprocess.check_call(['ansible-playbook',\
