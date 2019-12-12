@@ -209,7 +209,7 @@ class Segment(vertex.Vertex):
         lp,min_x,max_x,min_y,max_y=plate.split(';')
         seg=img[min_y:max_y+1,min_x:max_x+1] 
         cv2.imwrite('%s/%s_%s_%s.jpg'%(self.log_dir,lp,path,idx),seg)
-        cv2.rect(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
+        cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
     else:
       #dummy load since no license plates were found
       h,w=img.shape
@@ -219,7 +219,7 @@ class Segment(vertex.Vertex):
       max_x=min_x+100
       seg=img[min_y:max_y+1,min_x:max_x+1] 
       cv2.imwrite('%s/none_%s.jpg'%(self.log_dir,path),seg)
-      cv2.rect(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
+      cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
 
     res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
