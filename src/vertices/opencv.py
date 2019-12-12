@@ -20,7 +20,8 @@ class GaussianBlur(vertex.Vertex):
     super(GaussianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     res=cv2.GaussianBlur(img,(15,15),0)
     res_str=serialize_img(res,'.jpg')
@@ -31,7 +32,8 @@ class MedianBlur(vertex.Vertex):
     super(MedianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     res=cv2.medianBlur(img,5)
     res_str=serialize_img(res,'.jpg')
@@ -42,7 +44,8 @@ class BilateralFilter(vertex.Vertex):
     super(BilateralFilter,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     res=cv2.bilateralFilter(img,5,75,75)
     res_str=serialize_img(res,'.jpg')
@@ -53,7 +56,8 @@ class GrayScale(vertex.Vertex):
     super(GrayScale,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     grey=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     res_str=serialize_img(grey,'.jpg')
@@ -64,7 +68,8 @@ class Resize(vertex.Vertex):
     super(Resize,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     h,w,l=img.shape
     res=cv2.resize(img,(w//2,h//2))
@@ -76,7 +81,8 @@ class Threshold(vertex.Vertex):
     super(Threshold,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     #grey=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     thresh=cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,13,2)
@@ -89,7 +95,8 @@ class CarDetect(vertex.Vertex):
     self.car_cascade=cv2.CascadeClassifier('cars.xml')
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     cars=self.car_cascade.detectMultiScale(img,1.1,1)
     for (x,y,w,h) in cars:
@@ -103,7 +110,8 @@ class Add(vertex.Vertex):
     self.values_map={}
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     self.values_map[path]=deserialize_img(img_str)
     if len(self.values_map)==2:
       imgs=list(self.values_map.values())
@@ -118,7 +126,8 @@ class NoOp(vertex.Vertex):
     super(NoOp,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
@@ -136,7 +145,8 @@ class Bogus(vertex.Vertex):
     return compute(count)
 
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     for i in range(3):
       self.fib(14)
@@ -148,7 +158,8 @@ class EqHist(vertex.Vertex):
     super(EqHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     eq_hist=cv2.equalizeHist(img)
     res_str=serialize_img(eq_hist,'.jpg')
@@ -159,7 +170,8 @@ class ClaheHist(vertex.Vertex):
     super(ClaheHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8))
     clahe_hist=clahe.apply(img)
@@ -175,7 +187,8 @@ class LPR(vertex.Vertex):
     self.alpr.unload()
 
   def vfunction(self,update): 
-    code,idx,ts,path,img_str=update.split(',')
+    parts=update.split(',')
+    code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     results=self.alpr.recognize_ndarray(img)['results']
     recognized_lps=''
