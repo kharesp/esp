@@ -138,8 +138,8 @@ class Bogus(vertex.Vertex):
   def vfunction(self,update): 
     code,idx,ts,path,img_str=update.split(',')
     img=deserialize_img(img_str)
-    for i in range(5):
-      self.fib(22)
+    for i in range(3):
+      self.fib(14)
     res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
@@ -212,7 +212,7 @@ class Segment(vertex.Vertex):
         cv2.rect(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
     else:
       #dummy load since no license plates were found
-      h,w=img.shape()
+      h,w=img.shape
       min_y=h//2
       max_y=min_y+50
       min_x=w//2

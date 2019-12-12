@@ -43,6 +43,7 @@ class Experiment(object):
     self.end_barrier.wait()
     print('Experiment has finished')
 
+    time.sleep(15)
     #collect logs
     print('Collecting logs...')
     self.collect_logs()
