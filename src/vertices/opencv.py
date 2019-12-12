@@ -202,7 +202,7 @@ class LPR(vertex.Vertex):
     
     res_str=serialize_img(img,'.jpg')
     if recognized_lps:
-      return '%s,%s,%s,%s-%s,%s,%s'%(code,idx,ts,path,self.vid,res_str,recognized_lps)
+      return '%s,%s,%s,%s-%s,%s,%s'%(code,idx,ts,path,self.vid,res_str,recognized_lps.strip('/'))
     else:
       return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
@@ -220,12 +220,12 @@ class Segment(vertex.Vertex):
     code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     if len(parts)==6:
-      plates=parts[-1].split('/')
+      plates=parts[-1].strip().split('/')
       for plate in plates:
         lp,min_x,max_x,min_y,max_y=plate.split(';')
-        seg=img[min_y:max_y+1,min_x:max_x+1] 
+        seg=img[int(min_y):int(max_y)+1,int(min_x):int(max_x)+1] 
         #cv2.imwrite('%s/%s_%s_%s.jpg'%(self.log_dir,lp,path,idx),seg)
-        cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
+        cv2.rectangle(img,(int(min_x),int(min_y)),(int(max_x),int(max_y)),(255,0,0),3)
     else:
       #dummy load since no license plates were found
       h,w=img.shape
