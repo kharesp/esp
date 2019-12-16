@@ -1,4 +1,4 @@
-import os,argparse
+import os,argparse,collections
 
 op_exec={'noop': 15,
   'fib': 25,
@@ -13,7 +13,7 @@ def extract_features(k,intermediate_node):
   tests=os.listdir('log/model_learning/k%d'%(k))
   with open('log/model_learning/parameterization/k%d'%(k),'r') as params,\
     open('log/model_learning/summary/k%d.csv'%(k),'w') as outf:
-    outf.write('fv,fproc,bv,bproc,flat_mean,flat_90th,cpu(%),iowait(%),mem(%),nw(kB/s)\n')
+    outf.write('idx,fv,fproc,bv,bproc,flat_mean,flat_90th,cpu(%),iowait(%),mem(%),nw(kB/s)\n')
     for i in range(1,len(tests)+1): 
       param_str=next(params)
       linear_chains=param_str.strip().split('/') 
@@ -30,7 +30,7 @@ def extract_features(k,intermediate_node):
           path,lat_mean,lat_std,lat_90th=line.strip().split(',')
           path_latency[path]={'90th':float(lat_90th),'mean':float(lat_mean)}
 
-      util={}
+      util=collections.defaultdict(lambda: 0)
       with open('log/model_learning/k%d/%d/summary/summary_util.csv'%(k,i),'r') as uf:
         next(uf)
         for line in uf:
@@ -51,8 +51,10 @@ def extract_features(k,intermediate_node):
             continue
           bv+=path_params[other_path]['vcount']
           bproc+=path_params[other_path]['proc']
-        outf.write('%d,%d,%d,%d,%f,%f,%f,%f,%f,%f\n'%(fv,fproc,bv,bproc,\
+        outf.write('%d,%d,%d,%d,%d,%f,%f,%f,%f,%f,%f\n'%(i,fv,fproc,bv,bproc,\
           latency['mean'],latency['90th'],util['cpu'],util['iowait'],util['mem'],util['nw']))
+        if not any(util.values()):
+          print('Test:%d summary_util not available'%(i))
 
 if __name__=='__main__':
   parser=argparse.ArgumentParser(description='script to extract model learning features')
