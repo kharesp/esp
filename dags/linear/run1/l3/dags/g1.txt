@@ -1,0 +1,6 @@
+node;vid;vtype;upstream;rate;count
+node7;v0;src;;1;200
+node8;v1;bf;v0;1;200
+node8;v2;clahe;v1;1;200
+node8;v3;lpr;v2;1;200
+node7;v4;snk;v3;1;200
