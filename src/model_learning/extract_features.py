@@ -6,7 +6,7 @@ op_exec={'noop': 15,
   'eqh': 15,
   'clahe': 20,
   'seg': 15,
-  'lpr': 300,
+  'lpr': 270,
 }
 
 def extract_features(k,intermediate_node):
@@ -31,15 +31,16 @@ def extract_features(k,intermediate_node):
           path_latency[path]={'90th':float(lat_90th),'mean':float(lat_mean)}
 
       util=collections.defaultdict(lambda: 0)
-      with open('log/model_learning/k%d/%d/summary/summary_util.csv'%(k,i),'r') as uf:
-        next(uf)
-        for line in uf:
-          if line.startswith(intermediate_node):
-            node,cpu,iowait,mem,systat_mem,nw=line.strip().split(',')
-            util['cpu']=float(cpu)
-            util['iowait']=float(iowait)
-            util['mem']=float(mem)
-            util['nw']=float(nw)
+      if os.path.exists('log/model_learning/k%d/%d/summary/summary_util.csv'%(k,i)):
+        with open('log/model_learning/k%d/%d/summary/summary_util.csv'%(k,i),'r') as uf:
+          next(uf)
+          for line in uf:
+            if line.startswith(intermediate_node):
+              node,cpu,iowait,mem,systat_mem,nw=line.strip().split(',')
+              util['cpu']=float(cpu)
+              util['iowait']=float(iowait)
+              util['mem']=float(mem)
+              util['nw']=float(nw)
 
       for path,latency in path_latency.items():
         fv=path_params[path]['vcount']
@@ -53,8 +54,8 @@ def extract_features(k,intermediate_node):
           bproc+=path_params[other_path]['proc']
         outf.write('%d,%d,%d,%d,%d,%f,%f,%f,%f,%f,%f\n'%(i,fv,fproc,bv,bproc,\
           latency['mean'],latency['90th'],util['cpu'],util['iowait'],util['mem'],util['nw']))
-        if not any(util.values()):
-          print('Test:%d summary_util not available'%(i))
+      if not any(util.values()):
+        print('Test:%d summary_util not available'%(i))
 
 if __name__=='__main__':
   parser=argparse.ArgumentParser(description='script to extract model learning features')
