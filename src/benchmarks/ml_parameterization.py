@@ -9,7 +9,7 @@ def generate_params(k,count):
   combinations=set()
   all_lpr_chains=set()
 
-  while len(all_lpr_chains)<10:
+  while len(all_lpr_chains)<100:
     parameterization_str=''
     vid=1
     for chain in range(1,k+1):
@@ -56,6 +56,7 @@ def write_params(k,count,log_dir):
     for param_str in params:
       of.write('%s\n'%(param_str))
 
+write_params(1,1000,'log/model_learning2/parameterization/')
 write_params(2,2000,'log/model_learning2/parameterization/')
 write_params(3,2000,'log/model_learning2/parameterization/')
 write_params(4,2000,'log/model_learning2/parameterization/')

@@ -165,7 +165,7 @@ class Experiment(object):
 
   def summarize(self): 
     latency.latency(self.local_log_dir)
-    util.process(self.local_log_dir)
+    #util.process(self.local_log_dir)
 
   def shutdown(self):
     self.zk.stop()
