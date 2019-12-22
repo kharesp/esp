@@ -56,15 +56,6 @@ def write_params(k,count,log_dir):
     for param_str in params:
       of.write('%s\n'%(param_str))
 
-write_params(1,1000,'log/model_learning2/parameterization/')
-write_params(2,2000,'log/model_learning2/parameterization/')
-write_params(3,2000,'log/model_learning2/parameterization/')
-write_params(4,2000,'log/model_learning2/parameterization/')
-write_params(5,2000,'log/model_learning2/parameterization/')
-write_params(6,2000,'log/model_learning2/parameterization/')
-write_params(7,2000,'log/model_learning2/parameterization/')
-write_params(8,2000,'log/model_learning2/parameterization/')
-
 def generate_graph_description(parameterization_str,\
   src_snk_node,intermediate_node,log_dir):
   with open('%s/g1.txt'%(log_dir),'w') as of:
