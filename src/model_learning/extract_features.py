@@ -9,13 +9,18 @@ op_exec={'noop': 15,
   'lpr': 270,
 }
 
-def extract_features(k,intermediate_node):
+def extract_features(k,intermediate_node,start,end):
   tests=os.listdir('log/model_learning/k%d'%(k))
   with open('log/model_learning/parameterization/k%d'%(k),'r') as params,\
     open('log/model_learning/summary/k%d.csv'%(k),'w') as outf:
     outf.write('idx,fv,fproc,bv,bproc,flat_mean,flat_90th,cpu(%),iowait(%),mem(%),nw(kB/s)\n')
     for i in range(1,len(tests)+1): 
       param_str=next(params)
+      if i<start:
+        continue
+      if i>end:
+        break
+       
       linear_chains=param_str.strip().split('/') 
       path_params={}
       for linear_chain in linear_chains:
@@ -61,5 +66,7 @@ if __name__=='__main__':
   parser=argparse.ArgumentParser(description='script to extract model learning features')
   parser.add_argument('k',help='k colocation',type=int)
   parser.add_argument('intermediate_node',help='node on which intermediate vertices were hosted')
+  parser.add_argument('start',type=int,help='start exp number')
+  parser.add_argument('end',type=int,help='end exp number')
   args=parser.parse_args()
-  extract_features(args.k,args.intermediate_node) 
+  extract_features(args.k,args.intermediate_node,args.start,args.end) 
