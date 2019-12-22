@@ -162,7 +162,7 @@ class EqHist(vertex.Vertex):
     code,idx,ts,path,img_str=parts[0],parts[1],parts[2],parts[3],parts[4]
     img=deserialize_img(img_str)
     eq_hist=cv2.equalizeHist(img)
-    res_str=serialize_img(eq_hist,'.jpg')
+    res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class ClaheHist(vertex.Vertex):
@@ -175,7 +175,7 @@ class ClaheHist(vertex.Vertex):
     img=deserialize_img(img_str)
     clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8))
     clahe_hist=clahe.apply(img)
-    res_str=serialize_img(clahe_hist,'.jpg')
+    res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class LPR(vertex.Vertex):
@@ -235,7 +235,7 @@ class Segment(vertex.Vertex):
       max_x=min_x+100
       seg=img[min_y:max_y+1,min_x:max_x+1] 
       #cv2.imwrite('%s/none_%s.jpg'%(self.log_dir,path),seg)
-      cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
+      #cv2.rectangle(img,(min_x,min_y),(max_x,max_y),(255,0,0),3)
 
     res_str=serialize_img(img,'.jpg')
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)

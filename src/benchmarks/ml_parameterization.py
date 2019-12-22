@@ -1,30 +1,68 @@
 import random
 
-operators=['bf','eqh','clahe','seg','lpr','fib']
+operators=['bf','eqh','clahe','seg','fib','lpr']
 max_vertices_per_chain=4
 publication_rate=1
 msg_count=200
 
 def generate_params(k,count):
   combinations=set()
+  all_lpr_chains=set()
+
+  while len(all_lpr_chains)<10:
+    parameterization_str=''
+    vid=1
+    for chain in range(1,k+1):
+      num_vertices=random.randint(1,max_vertices_per_chain)
+      op_idx=random.randint(0,num_vertices-1)
+      ops=[]
+      for i in range(num_vertices):
+        if i==op_idx:
+          ops.append('lpr')
+        else:
+          ops.append(operators[random.randint(0,len(operators)-2)])
+      parameterization_str+='%d;%s;%s/'%(num_vertices,\
+        '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
+        ','.join(ops))
+      vid+=num_vertices
+    all_lpr_chains.add(parameterization_str.strip('/'))
+
   while len(combinations)<count:
     parameterization_str=''
     vid=1
     for chain in range(1,k+1):
       num_vertices=random.randint(1,max_vertices_per_chain)
-      ops=[operators[random.randint(0,len(operators)-1)] for i in range(num_vertices)]
+      ops=[]
+      for opcount in range(num_vertices):
+        sel_op=operators[random.randint(0,len(operators)-1)]
+        while (sel_op=='lpr') and (sel_op in ops):
+          sel_op=operators[random.randint(0,len(operators)-1)]
+        ops.append(sel_op)
+        
+      #ops=[operators[random.randint(0,len(operators)-1)] for i in range(num_vertices)]
       parameterization_str+='%d;%s;%s/'%(num_vertices,\
         '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
         ','.join(ops))
       vid+=num_vertices
+
     combinations.add(parameterization_str.strip('/'))
-  return combinations
+  return (combinations,all_lpr_chains) 
 
 def write_params(k,count,log_dir):
-  params=generate_params(k,count)
+  params,all_lpr=generate_params(k,count)
   with open('%s/k%d'%(log_dir,k),'w') as of:
+    for param_str in all_lpr:
+      of.write('%s\n'%(param_str))
     for param_str in params:
       of.write('%s\n'%(param_str))
+
+write_params(2,2000,'log/model_learning2/parameterization/')
+write_params(3,2000,'log/model_learning2/parameterization/')
+write_params(4,2000,'log/model_learning2/parameterization/')
+write_params(5,2000,'log/model_learning2/parameterization/')
+write_params(6,2000,'log/model_learning2/parameterization/')
+write_params(7,2000,'log/model_learning2/parameterization/')
+write_params(8,2000,'log/model_learning2/parameterization/')
 
 def generate_graph_description(parameterization_str,\
   src_snk_node,intermediate_node,log_dir):
