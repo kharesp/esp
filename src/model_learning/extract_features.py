@@ -12,10 +12,10 @@ op_exec={'noop': 15,
   'lpr': 270,
 }
 
-def extract_features(k,intermediate_node,start,end):
-  tests=os.listdir('log/model_learning/k%d'%(k))
-  with open('log/model_learning/parameterization/k%d'%(k),'r') as params,\
-    open('log/model_learning/summary/k%d.csv'%(k),'w') as outf:
+def extract_features(k,intermediate_node,start,end,log_dir,out_dir):
+  tests=os.listdir('%s/k%d'%(log_dir,k))
+  with open('%s/parameterization/k%d'%(log_dir,k),'r') as params,\
+    open('%s/k%d.csv'%(out_dir,k),'w') as outf:
     #outf.write('idx,fv,fproc,bv,bproc,flat_mean,flat_90th,cpu(%),iowait(%),mem(%),nw(kB/s)\n')
     outf.write('idx,fv,fproc,bv,bproc,flat_mean,flat_90th,v0,v1,v2,v3\n')
     for i in range(1,len(tests)+1): 
@@ -37,7 +37,7 @@ def extract_features(k,intermediate_node,start,end):
           'proc': processing_intervals}
       
       path_latency={}
-      with open('log/model_learning/k%d/%d/summary/summary_g1.csv'%(k,i),'r') as latf:
+      with open('%s/k%d/%d/summary/summary_g1.csv'%(log_dir,k,i),'r') as latf:
         next(latf)
         for line in latf:
           path,lat_mean,lat_std,lat_90th=line.strip().split(',')
@@ -80,5 +80,7 @@ if __name__=='__main__':
   parser.add_argument('intermediate_node',help='node on which intermediate vertices were hosted')
   parser.add_argument('start',type=int,help='start exp number')
   parser.add_argument('end',type=int,help='end exp number')
+  parser.add_argument('log_dir',help='log dir')
+  parser.add_argument('out_dir',help='output dir')
   args=parser.parse_args()
-  extract_features(args.k,args.intermediate_node,args.start,args.end) 
+  extract_features(args.k,args.intermediate_node,args.start,args.end,args.log_dir,args.out_dir) 
