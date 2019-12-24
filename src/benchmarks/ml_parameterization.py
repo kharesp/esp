@@ -5,39 +5,43 @@ max_vertices_per_chain=4
 publication_rate=1
 msg_count=200
 
-def generate_params(k,count):
+def generate_params(k,count_lpr):
   combinations=set()
   all_lpr_chains=set()
 
-  while len(all_lpr_chains)<100:
+  #while len(all_lpr_chains)<100:
+  #  parameterization_str=''
+  #  vid=1
+  #  for chain in range(1,k+1):
+  #    num_vertices=random.randint(1,max_vertices_per_chain)
+  #    op_idx=random.randint(0,num_vertices-1)
+  #    ops=[]
+  #    for i in range(num_vertices):
+  #      if i==op_idx:
+  #        ops.append('lpr')
+  #      else:
+  #        ops.append(operators[random.randint(0,len(operators)-2)])
+  #    parameterization_str+='%d;%s;%s/'%(num_vertices,\
+  #      '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
+  #      ','.join(ops))
+  #    vid+=num_vertices
+  #  all_lpr_chains.add(parameterization_str.strip('/'))
+  while len(all_lpr_chains)<count_lpr:
     parameterization_str=''
     vid=1
-    for chain in range(1,k+1):
-      num_vertices=random.randint(1,max_vertices_per_chain)
-      op_idx=random.randint(0,num_vertices-1)
-      ops=[]
-      for i in range(num_vertices):
-        if i==op_idx:
-          ops.append('lpr')
-        else:
-          ops.append(operators[random.randint(0,len(operators)-2)])
-      parameterization_str+='%d;%s;%s/'%(num_vertices,\
-        '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
-        ','.join(ops))
-      vid+=num_vertices
-    all_lpr_chains.add(parameterization_str.strip('/'))
-
-  while len(combinations)<count:
-    parameterization_str=''
-    vid=1
+    chainId_lpr={}
     for chain in range(1,k+1):
       num_vertices=random.randint(1,max_vertices_per_chain)
       ops=[]
       for opcount in range(num_vertices):
         sel_op=operators[random.randint(0,len(operators)-1)]
         while (sel_op=='lpr') and (sel_op in ops):
-          sel_op=operators[random.randint(0,len(operators)-1)]
+          sel_op=operators[random.randint(0,len(operators)-2)]
         ops.append(sel_op)
+      if 'lpr' in ops:
+        chainId_lpr[chain]=True
+      else:
+        chainId_lpr[chain]=False
         
       #ops=[operators[random.randint(0,len(operators)-1)] for i in range(num_vertices)]
       parameterization_str+='%d;%s;%s/'%(num_vertices,\
@@ -46,15 +50,19 @@ def generate_params(k,count):
       vid+=num_vertices
 
     combinations.add(parameterization_str.strip('/'))
+    if all(chainId_lpr.values()):
+      all_lpr_chains.add(parameterization_str.strip('/'))
   return (combinations,all_lpr_chains) 
+
 
 def write_params(k,count,log_dir):
   params,all_lpr=generate_params(k,count)
   with open('%s/k%d'%(log_dir,k),'w') as of:
     for param_str in all_lpr:
       of.write('%s\n'%(param_str))
-    for param_str in params:
+    for param_str in (params-all_lpr):
       of.write('%s\n'%(param_str))
+
 
 def generate_graph_description(parameterization_str,\
   src_snk_node,intermediate_node,log_dir):
