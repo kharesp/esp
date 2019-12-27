@@ -10,7 +10,7 @@ def test_colocation(k,start_tid,src_snk_node,intermediate_node,zk_connector,zk_d
         continue
       print('\n\n\nExecuting Test:%d'%(idx+1))
       print(param_str)
-      test_dir='%s/%d'%(log_dir,idx+1)
+      test_dir='%s/k%d/%d'%(log_dir,k,idx+1)
       if not os.path.exists(test_dir):
         os.makedirs(test_dir)
       if not os.path.exists('%s/dags'%(test_dir)):
