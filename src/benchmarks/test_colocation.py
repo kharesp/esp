@@ -4,7 +4,7 @@ import run
 from ml_parameterization import generate_graph_description
 
 def test_colocation(k,start_tid,src_snk_node,intermediate_node,zk_connector,zk_dir,log_dir):
-  with open('log/model_learning2/parameterization/k%d'%(k),'r') as inpf:
+  with open('%s/parameterization/k%d'%(log_dir,k),'r') as inpf:
     for idx,param_str in enumerate(inpf):
       if (idx+1)<start_tid:
         continue
