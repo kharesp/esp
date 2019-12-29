@@ -10,14 +10,35 @@ op_exec={'noop': 15,
   'seg': 15,
   'lpr': 270,
 }
+k_model={
+  1:'k1_nn1_80_fv_fp.pkl',
+  2:'k2_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  3:'k3_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  4:'k4_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  5:'k5_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  6:'k6_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  7:'k7_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
+  8:'k8_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
+}
+k_scaler={
+  1:'k1_scaler_nn1_80_fv_fp.pkl',
+  2:'k2_scaler_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  3:'k3_scaler_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  4:'k4_scaler_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  5:'k5_scaler_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  6:'k6_scaler_nn1_80_bv_bsp_vf_pf_fv_fp.pkl',
+  7:'k7_scaler_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
+  8:'k8_scaler_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
+}
+
 
 class Greedy:
   def __init__(self):
     self.scalers={}
     self.models={}
     for k in range(1,9):
-      self.scalers[k]=joblib.load('models/k%d/scaler.pkl'%(k))
-      self.models[k]=joblib.load('models/k%d/model.pkl'%(k))
+      self.scalers[k]=joblib.load('models/regression/k%d/%s'%(k,k_scaler[k]))
+      self.models[k]=joblib.load('models/regression/k%d/%s'%(k,k_model[k]))
 
   def get_params(self,dag):
     params={}
@@ -209,24 +230,25 @@ class Greedy:
 
   def predict_lpp(self,foreground_chain,interference_chains,params):
     k=len(interference_chains)+1
-    if k<=4:
-      res=sum([op_exec[params[x]] for x in foreground_chain])
-      print(res)
-      return res
-    else:
-      total_proc=sum([op_exec[params[x]] for x in foreground_chain])
-      for background_chain in interference_chains:
-        total_proc+=sum([op_exec[params[x]] for x in background_chain])
-      res= len(foreground_chain)*(total_proc/4.0)
-      print(res)
-      return res
-
-  def predict1(self,foreground_chain,interference_chains,params):
-    k=len(interference_chains)+1
     feature_vector=self.get_feature_vector(foreground_chain,interference_chains,params)
     scaler=self.scalers[k]
     model=self.models[k]
-    return model.predict(scaler.transform(feature_vector))[0]
+    if k==1:
+      return model.predict(scaler.transform(feature_vector))[0]
+    else:
+      return np.exp(model.predict(scaler.transform(feature_vector))[0])
+
+  def get_feature_vector(self,foreground_chain,interference_chains,params):
+    fv=len(foreground_chain)
+    fp=sum([op_exec[params[x]] for x in foreground_chain])
+    if len(interference_chains)==0:
+      return [[fv,fp]]
+    else:
+      bv=sum([len(linear_chain) for linear_chain in interference_chains])
+      bsp=sum([sum([op_exec[params[x]] for x in linear_chain]) for linear_chain in interference_chains])
+      vf=(fv*1.0)/(fv+bv)
+      pf=(fp*1.0)/(fp+bsp)
+      return [[bv,bsp,vf,pf,fv,fp]]
 
   def place(self,dag,method,network):
     #get adjacency matrix for graph description
@@ -301,4 +323,4 @@ if __name__=='__main__':
   dag='dags/test/t1/repr/g1.txt'
   adj=Greedy().get_adj_mat(dag)
   params=Greedy().get_params(dag)
-  print(Greedy().place(dag,'const',30))
+  print(Greedy().place(dag,'lpp',30))

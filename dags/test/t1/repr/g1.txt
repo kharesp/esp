@@ -1,0 +1,13 @@
+vid;type;upstream
+v0;src;
+v1;bf;v0
+v2;lpr;v1
+v3;eqh;v1
+v4;lpr;v3
+v5;eqh;v1
+v6;lpr;v5
+v7;eqh;v1
+v8;lpr;v7
+v9;eqh;v1
+v10;lpr;v9
+v11;snk;v2,v4,v6,v8,v10
