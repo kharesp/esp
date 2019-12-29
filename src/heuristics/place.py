@@ -2,7 +2,8 @@ import numpy as np
 import dag_utils,collections
 from sklearn.externals import joblib
 
-op_exec={'noop': 15,
+op_exec={
+  'noop': 15,
   'fib': 25,
   'bf': 35,
   'eqh': 15,
@@ -205,11 +206,17 @@ class Greedy:
     print('Predicting latency for pp:%s with interference:%s'%\
       (foreground_chain,interference_chains))
     if method=='lpp':
-      return self.predict_lpp(foreground_chain,interference_chains,params)
+      res=self.predict_lpp(foreground_chain,interference_chains,params)
+      print(res)
+      return res
     elif method=='const':
-      return self.predict_const(foreground_chain,interference_chains,params)
+      res=self.predict_const(foreground_chain,interference_chains,params)
+      print(res)
+      return res
     elif method=='sum':
-      return self.predict_sum(foreground_chain,interference_chains,params)
+      res=self.predict_sum(foreground_chain,interference_chains,params)
+      print(res)
+      return res
 
   def predict_const(self,foreground_chain,interference_chains,params):
     return sum([op_exec[params[x]] for x in foreground_chain])
@@ -234,9 +241,9 @@ class Greedy:
     scaler=self.scalers[k]
     model=self.models[k]
     if k==1:
-      return model.predict(scaler.transform(feature_vector))[0]
-    else:
       return np.exp(model.predict(scaler.transform(feature_vector))[0])
+    else:
+      return model.predict(scaler.transform(feature_vector))[0]
 
   def get_feature_vector(self,foreground_chain,interference_chains,params):
     fv=len(foreground_chain)
