@@ -5,28 +5,11 @@ max_vertices_per_chain=4
 publication_rate=1
 msg_count=200
 
-def generate_params(k,count_lpr):
+def generate_params(k,count):
   combinations=set()
   all_lpr_chains=set()
 
-  #while len(all_lpr_chains)<100:
-  #  parameterization_str=''
-  #  vid=1
-  #  for chain in range(1,k+1):
-  #    num_vertices=random.randint(1,max_vertices_per_chain)
-  #    op_idx=random.randint(0,num_vertices-1)
-  #    ops=[]
-  #    for i in range(num_vertices):
-  #      if i==op_idx:
-  #        ops.append('lpr')
-  #      else:
-  #        ops.append(operators[random.randint(0,len(operators)-2)])
-  #    parameterization_str+='%d;%s;%s/'%(num_vertices,\
-  #      '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
-  #      ','.join(ops))
-  #    vid+=num_vertices
-  #  all_lpr_chains.add(parameterization_str.strip('/'))
-  while len(all_lpr_chains)<count_lpr:
+  while len(combinations)<count:
     parameterization_str=''
     vid=1
     chainId_lpr={}
@@ -36,14 +19,13 @@ def generate_params(k,count_lpr):
       for opcount in range(num_vertices):
         sel_op=operators[random.randint(0,len(operators)-1)]
         while (sel_op=='lpr') and (sel_op in ops):
-          sel_op=operators[random.randint(0,len(operators)-2)]
+          sel_op=operators[random.randint(0,len(operators)-1)]
         ops.append(sel_op)
       if 'lpr' in ops:
         chainId_lpr[chain]=True
       else:
         chainId_lpr[chain]=False
         
-      #ops=[operators[random.randint(0,len(operators)-1)] for i in range(num_vertices)]
       parameterization_str+='%d;%s;%s/'%(num_vertices,\
         '-'.join(['v%d'%(i+vid) for i in range(num_vertices)]),\
         ','.join(ops))
@@ -53,7 +35,6 @@ def generate_params(k,count_lpr):
     if all(chainId_lpr.values()):
       all_lpr_chains.add(parameterization_str.strip('/'))
   return (combinations,all_lpr_chains) 
-
 
 def write_params(k,count,log_dir):
   params,all_lpr=generate_params(k,count)
