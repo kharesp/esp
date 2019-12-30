@@ -15,7 +15,7 @@ class Sink(vertex.Vertex):
     ts=parts[2]
     path=parts[3]
     path_latency_ms=(receive_ts-float(ts))*1000
-    self.path_latency['%s-%s'%(path,vid)].append((idx,path_latency_ms))
+    self.path_latency['%s-%s'%(path,self.vid)].append((idx,path_latency_ms))
 
   def clean_up(self):
     for path in self.path_latency.keys():
