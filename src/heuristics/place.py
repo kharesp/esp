@@ -1,7 +1,8 @@
 import numpy as np
-import dag_utils,collections
+import dag_utils,collections,os,argparse
 from sklearn.externals import joblib
 
+num_available_nodes=7
 op_exec={
   'noop': 15,
   'fib': 25,
@@ -31,7 +32,6 @@ k_scaler={
   7:'k7_scaler_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
   8:'k8_scaler_nn2_40_40_bv_bsp_vf_pf_fv_fp.pkl',
 }
-
 
 class Greedy:
   def __init__(self):
@@ -242,6 +242,7 @@ class Greedy:
     model=self.models[k]
     if k==1:
       return np.exp(model.predict(scaler.transform(feature_vector))[0])
+      #return feature_vector[0][1]
     else:
       return model.predict(scaler.transform(feature_vector))[0]
 
@@ -292,7 +293,8 @@ class Greedy:
       
       #compute each path's latency when current vertex v is placed on each eligible physical node
       node_makespan={}
-      for node in list(placement.keys())+['node%d'%(len(placement)+1)]:
+      eligible_nodes=list(placement.keys())+['node%d'%(len(placement)+1)] if (len(placement)<num_available_nodes) else list(placement.keys())
+      for node in eligible_nodes:
         print('\nTesting placement of vertex:%d on node:%s'%(v,node))
         feasibility_for_node=True
         vertex_node={}
@@ -324,10 +326,75 @@ class Greedy:
         placement[selected_node]=[v]
       else:
         placement[selected_node].append(v)
+   
+    placement['node%d'%(num_available_nodes+1)]=sources+sinks
     return placement
+
+  def get_latencies_of_all_paths_after_placement(self,method,adj,placement,params,network):
+    #get source and sink vertices
+    sources=list(np.where(~adj.any(axis=0))[0])
+    sinks=list(np.where(~adj.any(axis=1))[0])
+    #find all paths in DAG
+    paths=dag_utils.find_all_paths(adj)
+    corrp_originalp={','.join(['%d'%(x) for x in p if ((x not in sources) and (x not in sinks))]):p for p in paths}
+    corrected_paths=[[x for x in p if ((x not in sources) and (x not in sinks))] for p in paths]
+    #create interference paths for each path 
+    interference=self.get_interference_chains_for_paths(adj,corrected_paths)
+
+    vertex_node={}
+    for host,vertices in placement.items():
+      for vertex in vertices:
+        vertex_node[vertex]=host
+
+    path_latency={}
+    for curr_path in corrected_paths:
+      curr_path_latency=self.compute_path_latency(method,curr_path,interference,vertex_node,params,network,adj)
+      path_latency['-'.join(['v%d'%(i) for i in corrp_originalp[','.join(['%d'%(x) for x in curr_path])]])]=curr_path_latency+2*network
+
+    return path_latency
+
+  def write_results(self,method,dag,placement,output_dir):
+    if not os.path.exists(output_dir):
+      os.makedirs(output_dir)
+    if not os.path.exists('%s/dags'%(output_dir)):
+      os.makedirs('%s/dags'%(output_dir))
+    if not os.path.exists('%s/heuristic'%(output_dir)):
+      os.makedirs('%s/heuristic'%(output_dir))
+
+    #write the produced placement
+    with open('%s/heuristic/placement.csv'%(output_dir),'w') as outf:
+      outf.write('node;vertices\n')
+      for node,vertices in placement.items():
+        outf.write('%s;%s\n'%(node,','.join(['v%d'%(v) for v in vertices])))
+
+    #write predicted path latencies
+    adj=self.get_adj_mat(dag)
+    params=self.get_params(dag)
+    path_latency=self.get_latencies_of_all_paths_after_placement(method,adj,placement,params,0)
+    with open('%s/heuristic/prediction.csv'%(output_dir),'w') as outf:
+      outf.write('path;latency\n')
+      for path,latency in path_latency.items():
+        outf.write('%s;%f\n'%(path,latency))
+      
+    vertex_node={}
+    for node,vertices in placement.items():
+      for v in vertices:
+        vertex_node['v%d'%(v)]=node
+    
+    #write dag description for experiment execution
+    with open(dag,'r') as inp,open('%s/dags/g1.txt'%(output_dir),'w') as outf:
+      next(inp)
+      outf.write('node;vid;type;upstream;rate;count\n')
+      for line in inp: 
+        vertex,vtype,upstream=line.strip().split(';')
+        outf.write('%s;%s;%s;%s;%d;%d\n'%(vertex_node[vertex],vertex,vtype,upstream,1,200))
           
 if __name__=='__main__':
-  dag='dags/test/t1/repr/g1.txt'
-  adj=Greedy().get_adj_mat(dag)
-  params=Greedy().get_params(dag)
-  print(Greedy().place(dag,'lpp',30))
+  parser=argparse.ArgumentParser(description='Script to generate placement of DAG with specified heuristic algorithm')
+  parser.add_argument('dag',help='dag repr file path')
+  parser.add_argument('method',help='heuristic algorithm to use')
+  parser.add_argument('nc',type=int,help='network cost')
+  parser.add_argument('outdir',help='output dir where results of placement are logged')
+  args=parser.parse_args()
+  placement=Greedy().place(args.dag,args.method,args.nc)
+  Greedy().write_results(args.method,args.dag,placement,args.outdir)
