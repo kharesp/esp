@@ -73,6 +73,22 @@ class Greedy:
       rep[x]=len(patterns)
     return rep
 
+  def dfs(self,adj,sources):
+    vertices=np.shape(adj)[0]
+    stack=[x for x in sources]
+    visited={x:False for x in range(vertices)}
+    for s in sources:
+      visited[s]=True
+    dfs_order=[]
+    while stack:
+      curr_v=stack.pop()
+      dfs_order.append(curr_v)
+      for next_v in np.nonzero(adj[curr_v,:])[0]:
+        if visited[next_v]==False:
+          stack.append(next_v)
+          visited[next_v]=True
+    return dfs_order
+
   def bfs(self,adj,sources):
     vertices=np.shape(adj)[0]
     bfs_order=[]
@@ -269,7 +285,6 @@ class Greedy:
     vertex_replicas=self.replicas(adj)
     
     bfs_order=self.bfs(adj,sources)
-
     
     placement={}
     for idx,v in enumerate(bfs_order):
