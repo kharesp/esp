@@ -8,8 +8,8 @@ if __name__=='__main__':
   zk_dir='/test'
 
   for nc in [0,10,20,30,1000]:
-    for method in ['const','sum','lpp']:
-      for vnum in range(1,4):
+    for vnum in range(1,4):
+      for method in ['const','sum','lpp']:
         log_dir='%s/nc%d/g%d/%s'%(base_dir,nc,vnum,method)
         print(log_dir)
         #run experiment 
