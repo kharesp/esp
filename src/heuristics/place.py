@@ -233,6 +233,10 @@ class Greedy:
       res=self.predict_sum(foreground_chain,interference_chains,params)
       print(res)
       return res
+    elif method=='sum2':
+      res=self.predict_sum2(foreground_chain,interference_chains,params)
+      print(res)
+      return res
 
   def predict_const(self,foreground_chain,interference_chains,params):
     return sum([op_exec[params[x]] for x in foreground_chain])
@@ -250,6 +254,15 @@ class Greedy:
       res= len(foreground_chain)*(total_proc/4.0)
       print(res)
       return res
+
+  def predict_sum2(self,foreground_chain,interference_chains,params):
+    k=len(interference_chains)+1
+    total_proc=sum([op_exec[params[x]] for x in foreground_chain])
+    for background_chain in interference_chains:
+      total_proc+=sum([op_exec[params[x]] for x in background_chain])
+    res= len(foreground_chain)*(total_proc/4.0)
+    print(res)
+    return res
 
   def predict_lpp(self,foreground_chain,interference_chains,params):
     k=len(interference_chains)+1

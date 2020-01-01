@@ -37,5 +37,21 @@ def create_repr2(num_video_cams,output_dir):
       tail_vertices.append('v%d'%(vnum+8))
     outf.write('v%d;snk;%s\n'%(8*num_video_cams+1,','.join(tail_vertices)))
 
+def create_repr3(num_video_cams,output_dir):
+  with open('%s/g%d.txt'%(output_dir,num_video_cams),'w') as outf:
+    outf.write('vid;vtype;upstream\n')
+    outf.write('v0;src;\n')
+    tail_vertices=[] 
+    for vnum in [7*x for x in range(num_video_cams)]:
+      outf.write('v%d;bf;v0\n'%(vnum+1))
+      outf.write('v%d;lpr;v%d\n'%(vnum+2,vnum+1))
+      outf.write('v%d;eqh;v0\n'%(vnum+3))
+      outf.write('v%d;lpr;v%d\n'%(vnum+4,vnum+3))
+      outf.write('v%d;clahe;v0\n'%(vnum+5))
+      outf.write('v%d;lpr;v%d\n'%(vnum+6,vnum+5))
+      outf.write('v%d;fib;v%d,v%d,v%d\n'%(vnum+7,vnum+2,vnum+4,vnum+6))
+      tail_vertices.append('v%d'%(vnum+7))
+    outf.write('v%d;snk;%s\n'%(7*num_video_cams+1,','.join(tail_vertices)))
+
 for vnum in range(1,5):
-  create_repr2(vnum,'dags/app2')
+  create_repr3(vnum,'dags/app3')
