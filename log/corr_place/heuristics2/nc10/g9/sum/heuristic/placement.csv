@@ -1,0 +1,9 @@
+node;vertices
+node1;v1,v3,v5,v9,v11,v13,v10,v18,v54,v7,v15,v8,v16
+node2;v17,v19,v21,v25,v27,v29,v4,v12,v23,v31,v24,v32
+node3;v33,v35,v37,v41,v43,v45,v2,v14,v39,v47,v40,v48
+node4;v49,v51,v53,v57,v59,v61,v6,v20,v55,v63,v56,v64
+node5;v65,v67,v69,v22,v26,v28,v52,v62,v71,v72
+node6;v30,v34,v36,v38,v58,v66,v70
+node7;v42,v44,v46,v50,v60,v68
+node8;v0,v73
