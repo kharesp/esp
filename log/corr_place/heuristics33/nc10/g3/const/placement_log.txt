@@ -1,0 +1,1604 @@
+[0, 1, 7, 13, 2, 3, 5, 8, 9, 11, 14, 15, 17, 6, 4, 12, 10, 18, 16, 19]
+
+
+**************************************************
+Placing vertex:0
+
+
+**************************************************
+Placing vertex:1
+
+Testing placement of vertex:1 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6]]})
+Predicting latency for pp:[1] with interference:[]
+35
+Latency for path:[1] is 35.000000
+{'node1': 35}
+Placing vertex:1 on selected node:node1
+
+
+**************************************************
+Placing vertex:7
+
+Testing placement of vertex:7 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1], [7]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]]})
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Latency for path:[1] is 35.000000
+Predicting latency for pp:[7] with interference:[[1]]
+35
+Latency for path:[7] is 35.000000
+
+Testing placement of vertex:7 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1]], 'node2': [[7]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6]], 'node2': [[7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]]})
+Predicting latency for pp:[1] with interference:[]
+35
+Latency for path:[1] is 35.000000
+Predicting latency for pp:[7] with interference:[]
+35
+Latency for path:[7] is 35.000000
+{'node1': 35, 'node2': 35}
+Placing vertex:7 on selected node:node1
+
+
+**************************************************
+Placing vertex:13
+
+Testing placement of vertex:13 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1], [7], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Not feasible to place vertex:13 on node:node1
+
+Testing placement of vertex:13 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1], [7]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Latency for path:[1] is 35.000000
+Predicting latency for pp:[7] with interference:[[1]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node2': 35}
+Placing vertex:13 on selected node:node2
+
+
+**************************************************
+Placing vertex:2
+
+Testing placement of vertex:2 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [7]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[7] with interference:[[1, 2]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:2 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1], [7]], 'node2': [[2], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[2, 6], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[2] with interference:[[13]]
+270
+Latency for path:[1, 2] is 315.000000
+Predicting latency for pp:[7] with interference:[[1]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[[2]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:2 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1], [7]], 'node3': [[2]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node3': [[2, 6]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[2] with interference:[]
+270
+Latency for path:[1, 2] is 315.000000
+Predicting latency for pp:[7] with interference:[[1]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 315, 'node3': 315}
+Placing vertex:2 on selected node:node1
+
+
+**************************************************
+Placing vertex:3
+
+Testing placement of vertex:3 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [7]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:3 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [7]], 'node2': [[3], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[3, 4, 6], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[3] with interference:[[13]]
+15
+Latency for path:[1, 3] is 60.000000
+Predicting latency for pp:[7] with interference:[[1, 2]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[[3]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:3 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [7]], 'node3': [[3]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node3': [[3, 4, 6]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[3] with interference:[]
+15
+Latency for path:[1, 3] is 60.000000
+Predicting latency for pp:[7] with interference:[[1, 2]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:3 on selected node:node1
+
+
+**************************************************
+Placing vertex:5
+
+Testing placement of vertex:5 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:5 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [7]], 'node2': [[5], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[5, 4, 6], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[5] with interference:[[13]]
+20
+Latency for path:[1, 5] is 65.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[[5]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:5 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [7]], 'node3': [[5]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node3': [[5, 4, 6]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1] with interference:[[7]]
+35
+Predicting latency for pp:[5] with interference:[]
+20
+Latency for path:[1, 5] is 65.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3]]
+35
+Latency for path:[7] is 35.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:5 on selected node:node1
+
+
+**************************************************
+Placing vertex:8
+
+Testing placement of vertex:8 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:8 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7]], 'node2': [[8], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[8, 12], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[8] with interference:[[13]]
+270
+Latency for path:[7, 8] is 315.000000
+Predicting latency for pp:[13] with interference:[[8]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:8 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7]], 'node3': [[8]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7], [7, 9, 10, 12], [7, 11, 10, 12]], 'node3': [[8, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[8] with interference:[]
+270
+Latency for path:[7, 8] is 315.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 315, 'node3': 315}
+Placing vertex:8 on selected node:node1
+
+
+**************************************************
+Placing vertex:9
+
+Testing placement of vertex:9 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:9 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8]], 'node2': [[9], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 11, 10, 12]], 'node2': [[9, 10, 12], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[9] with interference:[[13]]
+15
+Latency for path:[7, 9] is 60.000000
+Predicting latency for pp:[13] with interference:[[9]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:9 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8]], 'node3': [[9]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 11, 10, 12]], 'node3': [[9, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[9] with interference:[]
+15
+Latency for path:[7, 9] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:9 on selected node:node1
+
+
+**************************************************
+Placing vertex:11
+
+Testing placement of vertex:11 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:11 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9]], 'node2': [[11], [13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12]], 'node2': [[11, 10, 12], [13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[11] with interference:[[13]]
+20
+Latency for path:[7, 11] is 65.000000
+Predicting latency for pp:[13] with interference:[[11]]
+35
+Latency for path:[13] is 35.000000
+
+Testing placement of vertex:11 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9]], 'node3': [[11]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12]], 'node3': [[11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7] with interference:[[1, 2], [3], [5]]
+35
+Predicting latency for pp:[11] with interference:[]
+20
+Latency for path:[7, 11] is 65.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Latency for path:[13] is 35.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:11 on selected node:node1
+
+
+**************************************************
+Placing vertex:14
+
+Testing placement of vertex:14 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [14]], 'node2': [[13]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [14, 18]], 'node2': [[13], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [14]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [14]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [14]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [14]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [14]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [14]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[14] with interference:[[1, 2], [3], [5], [7, 8], [9], [11]]
+270
+Latency for path:[13, 14] is 315.000000
+
+Testing placement of vertex:14 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+
+Testing placement of vertex:14 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11]], 'node2': [[13]], 'node3': [[14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13], [13, 15, 16, 18], [13, 17, 16, 18]], 'node3': [[14, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[14] with interference:[]
+270
+Latency for path:[13, 14] is 315.000000
+{'node1': 315, 'node2': 305, 'node3': 315}
+Placing vertex:14 on selected node:node2
+
+
+**************************************************
+Placing vertex:15
+
+Testing placement of vertex:15 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18]], 'node2': [[13, 14, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11]]
+15
+Latency for path:[13, 15] is 60.000000
+
+Testing placement of vertex:15 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11]], 'node2': [[13, 14], [13, 15]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 15, 16, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[[15]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13, 15] with interference:[[14]]
+50
+Latency for path:[13, 15] is 50.000000
+
+Testing placement of vertex:15 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11]], 'node2': [[13, 14]], 'node3': [[15]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12]], 'node2': [[13, 14, 18], [13, 17, 16, 18]], 'node3': [[15, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[]
+15
+Latency for path:[13, 15] is 60.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:15 on selected node:node1
+
+
+**************************************************
+Placing vertex:17
+
+Testing placement of vertex:17 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15], [17]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15], [17]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15], [17]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:17 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15]], 'node2': [[13, 14], [13, 17]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18]], 'node2': [[13, 14, 18], [13, 17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[[17]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13, 17] with interference:[[14]]
+55
+Latency for path:[13, 17] is 55.000000
+
+Testing placement of vertex:17 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15]], 'node2': [[13, 14]], 'node3': [[17]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18]], 'node2': [[13, 14, 18]], 'node3': [[17, 16, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15]]
+305
+Latency for path:[1, 2] is 305.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[]
+20
+Latency for path:[13, 17] is 65.000000
+{'node1': 305, 'node2': 305, 'node3': 305}
+Placing vertex:17 on selected node:node1
+
+
+**************************************************
+Placing vertex:6
+
+Testing placement of vertex:6 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3] with interference:[[2, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2, 6], [3, 6], [7, 8], [9], [11], [15], [17]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 6], [5, 6], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:6 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[6], [13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3, 4], [1, 5, 4], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[6], [13, 14, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15], [17]]
+305
+Predicting latency for pp:[6] with interference:[[13, 14]]
+25
+Latency for path:[1, 2, 6] is 340.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15], [17]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15], [17]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[[6]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[[6]]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[[6]]
+35
+Predicting latency for pp:[17] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:6 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3], [1, 5], [7, 8], [7, 9], [7, 11], [15], [17]], 'node3': [[6]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2], [1, 3, 4], [1, 5, 4], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node3': [[6]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2] with interference:[[3], [5], [7, 8], [9], [11], [15], [17]]
+305
+Predicting latency for pp:[6] with interference:[]
+25
+Latency for path:[1, 2, 6] is 340.000000
+Predicting latency for pp:[1, 3] with interference:[[2], [5], [7, 8], [9], [11], [15], [17]]
+50
+Latency for path:[1, 3] is 50.000000
+Predicting latency for pp:[1, 5] with interference:[[2], [3], [7, 8], [9], [11], [15], [17]]
+55
+Latency for path:[1, 5] is 55.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2], [3], [5], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2], [3], [5], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2], [3], [5], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2], [3], [5], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+{'node1': 330, 'node2': 340, 'node3': 340}
+Placing vertex:6 on selected node:node1
+
+
+**************************************************
+Placing vertex:4
+
+Testing placement of vertex:4 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8], [9], [11], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:4 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 6], [1, 5, 6], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[4], [13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 6], [1, 5, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[4], [13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 6] with interference:[[2, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+75
+Predicting latency for pp:[4] with interference:[[13, 14]]
+270
+Latency for path:[1, 3, 4, 6] is 355.000000
+Predicting latency for pp:[1, 5, 6] with interference:[[2, 6], [3, 6], [7, 8], [9], [11], [15], [17]]
+80
+Predicting latency for pp:[4] with interference:[[13, 14]]
+270
+Latency for path:[1, 5, 4, 6] is 360.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 6], [5, 6], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[[4]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[[4]]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[[4]]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:4 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 6], [1, 5, 6], [7, 8], [7, 9], [7, 11], [15], [17]], 'node3': [[4]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 6], [1, 5, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node3': [[4]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 6] with interference:[[2, 6], [5, 6], [7, 8], [9], [11], [15], [17]]
+75
+Predicting latency for pp:[4] with interference:[]
+270
+Latency for path:[1, 3, 4, 6] is 355.000000
+Predicting latency for pp:[1, 5, 6] with interference:[[2, 6], [3, 6], [7, 8], [9], [11], [15], [17]]
+80
+Predicting latency for pp:[4] with interference:[]
+270
+Latency for path:[1, 5, 4, 6] is 360.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 6], [5, 6], [9], [11], [15], [17]]
+305
+Latency for path:[7, 8] is 305.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 6], [5, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 6], [5, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+{'node1': 350, 'node2': 360, 'node3': 360}
+Placing vertex:4 on selected node:node1
+
+
+**************************************************
+Placing vertex:12
+
+Testing placement of vertex:12 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9], [7, 11], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 12], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 12], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:12 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8], [7, 9], [7, 11], [15], [17]], 'node2': [[12], [13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8], [7, 9, 10], [7, 11, 10], [15, 16, 18], [17, 16, 18]], 'node2': [[12], [13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8], [9], [11], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9], [11], [15], [17]]
+305
+Predicting latency for pp:[12] with interference:[[13, 14]]
+25
+Latency for path:[7, 8, 12] is 340.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[[12]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[[12]]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[[12]]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:12 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8], [7, 9], [7, 11], [15], [17]], 'node3': [[12]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8], [7, 9, 10], [7, 11, 10], [15, 16, 18], [17, 16, 18]], 'node3': [[12]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8], [9], [11], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8], [9], [11], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9], [11], [15], [17]]
+305
+Predicting latency for pp:[12] with interference:[]
+25
+Latency for path:[7, 8, 12] is 340.000000
+Predicting latency for pp:[7, 9] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [11], [15], [17]]
+50
+Latency for path:[7, 9] is 50.000000
+Predicting latency for pp:[7, 11] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8], [9], [15], [17]]
+55
+Latency for path:[7, 11] is 55.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8], [9], [11], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+{'node1': 350, 'node2': 350, 'node3': 350}
+Placing vertex:12 on selected node:node1
+
+
+**************************************************
+Placing vertex:10
+
+Testing placement of vertex:10 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15], [17]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:10 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 12], [7, 11, 12], [15], [17]], 'node2': [[10], [13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 12], [7, 11, 12], [15, 16, 18], [17, 16, 18]], 'node2': [[10], [13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 12], [15], [17]]
+75
+Predicting latency for pp:[10] with interference:[[13, 14]]
+270
+Latency for path:[7, 9, 10, 12] is 355.000000
+Predicting latency for pp:[7, 11, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 12], [15], [17]]
+80
+Predicting latency for pp:[10] with interference:[[13, 14]]
+270
+Latency for path:[7, 11, 10, 12] is 360.000000
+Predicting latency for pp:[13, 14] with interference:[[10]]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[[10]]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[[10]]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:10 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 12], [7, 11, 12], [15], [17]], 'node3': [[10]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 12], [7, 11, 12], [15, 16, 18], [17, 16, 18]], 'node3': [[10]], 'node2': [[13, 14, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 12], [11, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 12], [15], [17]]
+75
+Predicting latency for pp:[10] with interference:[]
+270
+Latency for path:[7, 9, 10, 12] is 355.000000
+Predicting latency for pp:[7, 11, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 12], [15], [17]]
+80
+Predicting latency for pp:[10] with interference:[]
+270
+Latency for path:[7, 11, 10, 12] is 360.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Latency for path:[13, 14] is 305.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 12], [11, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+{'node1': 350, 'node2': 360, 'node3': 360}
+Placing vertex:10 on selected node:node1
+
+
+**************************************************
+Placing vertex:18
+
+Testing placement of vertex:18 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [18], [15], [17]], 'node2': [[13, 14]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [18], [15, 16, 18], [17, 16, 18]], 'node2': [[13, 14]]})
+Not feasible to place vertex:18 on node:node1
+
+Testing placement of vertex:18 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14, 18]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16], [17, 16]], 'node2': [[13, 14, 18], [13, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15], [17]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14, 18] with interference:[[18]]
+330
+Latency for path:[13, 14, 18] is 330.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+
+Testing placement of vertex:18 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14]], 'node3': [[18]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16], [17, 16]], 'node2': [[13, 14]], 'node3': [[18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15], [17]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14] with interference:[]
+305
+Predicting latency for pp:[18] with interference:[]
+25
+Latency for path:[13, 14, 18] is 340.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17]]
+15
+Latency for path:[13, 15] is 60.000000
+Predicting latency for pp:[13] with interference:[]
+35
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15]]
+20
+Latency for path:[13, 17] is 65.000000
+{'node2': 350, 'node3': 350}
+Placing vertex:18 on selected node:node2
+
+
+**************************************************
+Placing vertex:16
+
+Testing placement of vertex:16 on node:node1
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16], [17, 16]], 'node2': [[13, 14, 18], [13, 18]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15, 16], [17, 16]], 'node2': [[13, 14, 18], [13, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15, 16], [17, 16]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15, 16], [17, 16]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14, 18] with interference:[[18]]
+330
+Latency for path:[13, 14, 18] is 330.000000
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[15, 16] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17, 16]]
+285
+Latency for path:[13, 15, 16, 18] is 355.000000
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[17, 16] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16]]
+290
+Latency for path:[13, 17, 16, 18] is 360.000000
+
+Testing placement of vertex:16 on node:node2
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14, 18], [13, 16, 18]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14, 18], [13, 16, 18]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15], [17]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14, 18] with interference:[[16, 18]]
+330
+Latency for path:[13, 14, 18] is 330.000000
+Predicting latency for pp:[13, 16, 18] with interference:[[14, 18]]
+330
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17]]
+15
+Latency for path:[13, 15, 16, 18] is 355.000000
+Predicting latency for pp:[13, 16, 18] with interference:[[14, 18]]
+330
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15]]
+20
+Latency for path:[13, 17, 16, 18] is 360.000000
+
+Testing placement of vertex:16 on node:node3
+Partial paths are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14, 18], [13, 18]], 'node3': [[16]]})
+
+Partial paths2 are:
+defaultdict(<class 'list'>, {'node1': [[1, 2, 6], [1, 3, 4, 6], [1, 5, 4, 6], [7, 8, 12], [7, 9, 10, 12], [7, 11, 10, 12], [15], [17]], 'node2': [[13, 14, 18], [13, 18]], 'node3': [[16]]})
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[1, 2, 6] is 330.000000
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[1, 3, 4, 6] is 345.000000
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15], [17]]
+350
+Latency for path:[1, 5, 4, 6] is 350.000000
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15], [17]]
+330
+Latency for path:[7, 8, 12] is 330.000000
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15], [17]]
+345
+Latency for path:[7, 9, 10, 12] is 345.000000
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15], [17]]
+350
+Latency for path:[7, 11, 10, 12] is 350.000000
+Predicting latency for pp:[13, 14, 18] with interference:[[18]]
+330
+Latency for path:[13, 14, 18] is 330.000000
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[15] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17]]
+15
+Predicting latency for pp:[16] with interference:[]
+270
+Latency for path:[13, 15, 16, 18] is 365.000000
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[17] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15]]
+20
+Predicting latency for pp:[16] with interference:[]
+270
+Latency for path:[13, 17, 16, 18] is 370.000000
+{'node1': 360, 'node2': 360, 'node3': 370}
+Placing vertex:16 on selected node:node1
+
+
+**************************************************
+Placing vertex:19
+PLACEMENT:
+
+{'node1': [1, 7, 2, 3, 5, 8, 9, 11, 15, 17, 6, 4, 12, 10, 16], 'node2': [13, 14, 18], 'node8': [0, 19]}
+Predicting latency for pp:[1, 2, 6] with interference:[[3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+330
+Predicting latency for pp:[1, 3, 4, 6] with interference:[[2, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+345
+Predicting latency for pp:[1, 5, 4, 6] with interference:[[2, 6], [3, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+350
+Predicting latency for pp:[7, 8, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [9, 10, 12], [11, 10, 12], [15, 16], [17, 16]]
+330
+Predicting latency for pp:[7, 9, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [11, 10, 12], [15, 16], [17, 16]]
+345
+Predicting latency for pp:[7, 11, 10, 12] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [8, 12], [9, 10, 12], [15, 16], [17, 16]]
+350
+Predicting latency for pp:[13, 14, 18] with interference:[[18]]
+330
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[15, 16] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [17, 16]]
+285
+Predicting latency for pp:[13, 18] with interference:[[14, 18]]
+60
+Predicting latency for pp:[17, 16] with interference:[[1, 2, 6], [3, 4, 6], [5, 4, 6], [7, 8, 12], [9, 10, 12], [11, 10, 12], [15, 16]]
+290
+
