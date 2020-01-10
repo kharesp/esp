@@ -22,7 +22,7 @@ class Graph(NamedTuple):
 class Vertex:
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     self.vid=vid
-    self.rep=rep
+    self.rep=int(rep)
     self.graph=graph
     self.count=0
     self.log_dir=log_dir
