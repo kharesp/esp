@@ -6,7 +6,7 @@ from kazoo.recipe.barrier import Barrier
 
 class Source(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir,data_dir,rate,message_count): 
-    super(Source,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Source,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.data_dir=data_dir
     self.rate=int(rate)
     self.sleep_interval_s=1.0/self.rate

@@ -1,6 +1,6 @@
 import parse,subprocess,time,os,shutil,sys
 sys.path.append('src/summarize')
-import metadata,latency,util
+import metadata,latency,util,makespan
 from kazoo.client import KazooClient
 from kazoo.protocol.states import EventType
 from kazoo.recipe.watchers import ChildrenWatch
@@ -165,6 +165,7 @@ class Experiment(object):
 
   def summarize(self): 
     latency.latency(self.local_log_dir)
+    makespan.makespan(self.local_log_dir,200)
     #util.process(self.local_log_dir)
 
   def shutdown(self):

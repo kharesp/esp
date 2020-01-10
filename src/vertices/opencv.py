@@ -17,7 +17,7 @@ def serialize_img(img,encoding):
 
 class GaussianBlur(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(GaussianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(GaussianBlur,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
     parts=update.split(',')
@@ -29,7 +29,7 @@ class GaussianBlur(vertex.Vertex):
 
 class MedianBlur(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(MedianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(MedianBlur,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
     parts=update.split(',')
@@ -41,7 +41,7 @@ class MedianBlur(vertex.Vertex):
 
 class BilateralFilter(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(BilateralFilter,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(BilateralFilter,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
     parts=update.split(',')
@@ -53,7 +53,7 @@ class BilateralFilter(vertex.Vertex):
 
 class GrayScale(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(GrayScale,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(GrayScale,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -65,7 +65,7 @@ class GrayScale(vertex.Vertex):
 
 class Resize(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(Resize,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Resize,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -78,7 +78,7 @@ class Resize(vertex.Vertex):
 
 class Threshold(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(Threshold,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Threshold,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -91,7 +91,7 @@ class Threshold(vertex.Vertex):
 
 class CarDetect(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(CarDetect,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(CarDetect,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.car_cascade=cv2.CascadeClassifier('cars.xml')
  
   def vfunction(self,update): 
@@ -106,7 +106,7 @@ class CarDetect(vertex.Vertex):
 
 class Add(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(Add,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Add,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.values_map={}
  
   def vfunction(self,update): 
@@ -123,7 +123,7 @@ class Add(vertex.Vertex):
 
 class NoOp(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(NoOp,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(NoOp,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -134,7 +134,7 @@ class NoOp(vertex.Vertex):
 
 class Bogus(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(Bogus,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Bogus,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
   
   def fib(self,count): 
     def compute(n):
@@ -155,7 +155,7 @@ class Bogus(vertex.Vertex):
 
 class EqHist(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(EqHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(EqHist,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -167,7 +167,7 @@ class EqHist(vertex.Vertex):
 
 class ClaheHist(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(ClaheHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(ClaheHist,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
     parts=update.split(',')
@@ -180,7 +180,7 @@ class ClaheHist(vertex.Vertex):
 
 class LPR(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(LPR,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(LPR,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.alpr=Alpr('us','/etc/opanalpr/openalpr.conf','/home/pi/workspace/python/openalpr/runtime_data')
   
   def clean_up(self):
@@ -208,7 +208,7 @@ class LPR(vertex.Vertex):
 
 class Segment(vertex.Vertex):
   def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
-    super(Segment,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
+    super(Segment,self).__init__(vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   #def clean_up(self):
   #  seg_files=glob.glob('%s/*.jpg'%(self.log_dir))
