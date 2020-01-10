@@ -16,7 +16,7 @@ def serialize_img(img,encoding):
   return b64.decode('ascii')
 
 class GaussianBlur(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(GaussianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
@@ -28,7 +28,7 @@ class GaussianBlur(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class MedianBlur(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(MedianBlur,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
@@ -40,7 +40,7 @@ class MedianBlur(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class BilateralFilter(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(BilateralFilter,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   def vfunction(self,update):
@@ -52,7 +52,7 @@ class BilateralFilter(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class GrayScale(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(GrayScale,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -64,7 +64,7 @@ class GrayScale(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Resize(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Resize,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -77,7 +77,7 @@ class Resize(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Threshold(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Threshold,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -90,7 +90,7 @@ class Threshold(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class CarDetect(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(CarDetect,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.car_cascade=cv2.CascadeClassifier('cars.xml')
  
@@ -105,7 +105,7 @@ class CarDetect(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Add(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Add,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.values_map={}
  
@@ -122,7 +122,7 @@ class Add(vertex.Vertex):
       return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,img_str)
 
 class NoOp(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(NoOp,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -133,7 +133,7 @@ class NoOp(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Bogus(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Bogus,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
   
   def fib(self,count): 
@@ -154,7 +154,7 @@ class Bogus(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class EqHist(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(EqHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -166,7 +166,7 @@ class EqHist(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class ClaheHist(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(ClaheHist,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
  
   def vfunction(self,update): 
@@ -179,7 +179,7 @@ class ClaheHist(vertex.Vertex):
     return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class LPR(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(LPR,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.alpr=Alpr('us','/etc/opanalpr/openalpr.conf','/home/pi/workspace/python/openalpr/runtime_data')
   
@@ -207,7 +207,7 @@ class LPR(vertex.Vertex):
       return '%s,%s,%s,%s-%s,%s'%(code,idx,ts,path,self.vid,res_str)
 
 class Segment(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Segment,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
 
   #def clean_up(self):

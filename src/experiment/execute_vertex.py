@@ -11,38 +11,38 @@ def execute(gid,vdesc,zk_connector,zk_dir,log_dir):
     vid_connector[vid]=vertex.ZmqConnector(ip,int(port))
   graph=vertex.Graph(gid,vid_connector)
 
-  vid,vtype,upstream_vertices,rate,count=vparams.split(';')
+  vid,vtype,rep,upstream_vertices,rate,count=vparams.split(';')
 
   upstream_vertex_list=None
   if upstream_vertices:
     upstream_vertex_list=upstream_vertices.split(',')
   
   if vtype=='src':
-    v=source.Source(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir,metadata.data_dir,rate,count)
+    v=source.Source(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir,metadata.data_dir,rate,count)
     v.execute()
   elif vtype=='lpr':
-    v=opencv.LPR(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.LPR(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='eqh':
-    v=opencv.EqHist(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.EqHist(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='clahe':
-    v=opencv.ClaheHist(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.ClaheHist(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='bf':
-    v=opencv.BilateralFilter(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.BilateralFilter(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='seg':
-    v=opencv.Segment(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.Segment(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='noop':
-    v=opencv.NoOp(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.NoOp(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='fib':
-    v=opencv.Bogus(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=opencv.Bogus(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   elif vtype=='snk':
-    v=sink.Sink(vid,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
+    v=sink.Sink(vid,rep,graph,upstream_vertex_list,zk_connector,zk_dir,log_dir)
     v.execute()
   else:
     print('Invalid Vertex Type')

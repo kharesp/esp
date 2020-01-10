@@ -20,8 +20,9 @@ class Graph(NamedTuple):
   operators: Dict[str,ZmqConnector]
 
 class Vertex:
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     self.vid=vid
+    self.rep=rep
     self.graph=graph
     self.count=0
     self.log_dir=log_dir
@@ -65,7 +66,9 @@ class Vertex:
         def on_next(value):
           receive_ts=time.time()
           msg_idx=value.split(',')[1]
-          r=self.vfunction(value)
+          r=None
+          for idx in range(self.rep):
+            r=self.vfunction(value)
           finish_ts=time.time()
           self.count+=1
           self.compute_times.append((int(msg_idx),(finish_ts-receive_ts)*1000))

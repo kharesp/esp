@@ -4,7 +4,7 @@ import vertex
 import numpy as np
 
 class Sink(vertex.Vertex):
-  def __init__(self,vid,graph,upstream_operators,zk_connector,zk_dir,log_dir):
+  def __init__(self,vid,rep,graph,upstream_operators,zk_connector,zk_dir,log_dir):
     super(Sink,self).__init__(vid,graph,upstream_operators,zk_connector,zk_dir,log_dir)
     self.path_latency=collections.defaultdict(list)
 

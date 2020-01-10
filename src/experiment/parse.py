@@ -20,7 +20,7 @@ def parse(log_dir):
     with open('%s/dags/%s'%(log_dir,graph),'r') as inp:
       next(inp)#skip header
       for vertex_parameterization in inp:
-        parts=vertex_parameterization.rstrip().split(';') #node;vid;vtype;upstream;rate;count
+        parts=vertex_parameterization.rstrip().split(';') #node;vid;vtype;rep;upstream;rate;count
         node=parts[0]
         hostname=metadata.node_hostname[node]
         vid=parts[1]
