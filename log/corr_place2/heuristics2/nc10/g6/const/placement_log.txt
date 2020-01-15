@@ -143,7 +143,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 50, 'node2': 50}
+{'node1': 35, 'node2': 35}
 Placing vertex:3 on selected node:node1
 
 
@@ -241,7 +241,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 70, 'node2': 70}
+{'node1': 35, 'node2': 35}
 Placing vertex:5 on selected node:node1
 
 
@@ -343,7 +343,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 105, 'node2': 105}
+{'node1': 35, 'node2': 35}
 Placing vertex:9 on selected node:node1
 
 
@@ -449,7 +449,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 120, 'node2': 120}
+{'node1': 35, 'node2': 35}
 Placing vertex:11 on selected node:node1
 
 
@@ -559,7 +559,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 140, 'node2': 140}
+{'node1': 35, 'node2': 35}
 Placing vertex:13 on selected node:node1
 
 
@@ -673,7 +673,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 175, 'node2': 175}
+{'node1': 35, 'node2': 35}
 Placing vertex:17 on selected node:node1
 
 
@@ -791,7 +791,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node1': 190, 'node2': 190}
+{'node1': 35, 'node2': 35}
 Placing vertex:19 on selected node:node1
 
 
@@ -860,7 +860,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 210}
+{'node2': 35}
 Placing vertex:21 on selected node:node2
 
 
@@ -991,7 +991,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 245, 'node3': 245}
+{'node2': 35, 'node3': 35}
 Placing vertex:25 on selected node:node2
 
 
@@ -1126,7 +1126,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 260, 'node3': 260}
+{'node2': 35, 'node3': 35}
 Placing vertex:27 on selected node:node2
 
 
@@ -1265,7 +1265,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 280, 'node3': 280}
+{'node2': 35, 'node3': 35}
 Placing vertex:29 on selected node:node2
 
 
@@ -1408,7 +1408,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 315, 'node3': 315}
+{'node2': 35, 'node3': 35}
 Placing vertex:33 on selected node:node2
 
 
@@ -1555,7 +1555,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 330, 'node3': 330}
+{'node2': 35, 'node3': 35}
 Placing vertex:35 on selected node:node2
 
 
@@ -1706,7 +1706,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 350, 'node3': 350}
+{'node2': 35, 'node3': 35}
 Placing vertex:37 on selected node:node2
 
 
@@ -1861,7 +1861,7 @@ Latency for path:[43, 44, 47, 48] is 0.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node2': 385, 'node3': 385}
+{'node2': 35, 'node3': 35}
 Placing vertex:41 on selected node:node2
 
 
@@ -1951,7 +1951,7 @@ Latency for path:[43, 44, 47, 48] is 15.000000
 
 Latency for path:[45, 46, 47, 48] is 0.000000
 
-{'node3': 400}
+{'node3': 35}
 Placing vertex:43 on selected node:node3
 
 
@@ -2119,7 +2119,7 @@ Predicting latency for pp:[45] with interference:[]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node3': 420, 'node4': 420}
+{'node3': 35, 'node4': 35}
 Placing vertex:45 on selected node:node3
 
 
@@ -2362,7 +2362,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 690, 'node3': 700, 'node4': 700}
+{'node1': 305, 'node3': 315, 'node4': 315}
 Placing vertex:2 on selected node:node1
 
 
@@ -2605,7 +2605,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 960, 'node3': 970, 'node4': 970}
+{'node1': 305, 'node3': 305, 'node4': 305}
 Placing vertex:4 on selected node:node1
 
 
@@ -2848,7 +2848,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 1230, 'node3': 1240, 'node4': 1240}
+{'node1': 305, 'node3': 305, 'node4': 305}
 Placing vertex:6 on selected node:node1
 
 
@@ -3091,7 +3091,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 1500, 'node3': 1510, 'node4': 1510}
+{'node1': 305, 'node3': 315, 'node4': 315}
 Placing vertex:10 on selected node:node1
 
 
@@ -3334,7 +3334,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 1770, 'node3': 1780, 'node4': 1780}
+{'node1': 305, 'node3': 305, 'node4': 305}
 Placing vertex:12 on selected node:node1
 
 
@@ -3577,7 +3577,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 2040, 'node3': 2050, 'node4': 2050}
+{'node1': 305, 'node3': 305, 'node4': 305}
 Placing vertex:14 on selected node:node1
 
 
@@ -3820,7 +3820,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 2310, 'node3': 2320, 'node4': 2320}
+{'node1': 305, 'node3': 315, 'node4': 315}
 Placing vertex:18 on selected node:node1
 
 
@@ -4063,7 +4063,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node1': 2580, 'node3': 2590, 'node4': 2590}
+{'node1': 305, 'node3': 305, 'node4': 305}
 Placing vertex:20 on selected node:node1
 
 
@@ -4306,7 +4306,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 2850, 'node3': 2860, 'node4': 2860}
+{'node2': 305, 'node3': 305, 'node4': 305}
 Placing vertex:22 on selected node:node2
 
 
@@ -4549,7 +4549,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 3120, 'node3': 3130, 'node4': 3130}
+{'node2': 305, 'node3': 315, 'node4': 315}
 Placing vertex:26 on selected node:node2
 
 
@@ -4792,7 +4792,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 3390, 'node3': 3400, 'node4': 3400}
+{'node2': 305, 'node3': 305, 'node4': 305}
 Placing vertex:28 on selected node:node2
 
 
@@ -5035,7 +5035,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 3660, 'node3': 3670, 'node4': 3670}
+{'node2': 305, 'node3': 305, 'node4': 305}
 Placing vertex:30 on selected node:node2
 
 
@@ -5278,7 +5278,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 3930, 'node3': 3940, 'node4': 3940}
+{'node2': 305, 'node3': 315, 'node4': 315}
 Placing vertex:34 on selected node:node2
 
 
@@ -5521,7 +5521,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 4200, 'node3': 4210, 'node4': 4210}
+{'node2': 305, 'node3': 305, 'node4': 305}
 Placing vertex:36 on selected node:node2
 
 
@@ -5764,7 +5764,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 4470, 'node3': 4480, 'node4': 4480}
+{'node2': 305, 'node3': 305, 'node4': 305}
 Placing vertex:38 on selected node:node2
 
 
@@ -6007,7 +6007,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node2': 4740, 'node3': 4750, 'node4': 4750}
+{'node2': 305, 'node3': 315, 'node4': 315}
 Placing vertex:42 on selected node:node2
 
 
@@ -6177,7 +6177,7 @@ Predicting latency for pp:[45] with interference:[[43]]
 20
 Latency for path:[45, 46, 47, 48] is 20.000000
 
-{'node3': 5010, 'node4': 5020}
+{'node3': 305, 'node4': 305}
 Placing vertex:44 on selected node:node3
 
 
@@ -6347,7 +6347,7 @@ Predicting latency for pp:[46] with interference:[]
 270
 Latency for path:[45, 46, 47, 48] is 300.000000
 
-{'node3': 5280, 'node4': 5290}
+{'node3': 305, 'node4': 305}
 Placing vertex:46 on selected node:node3
 
 
@@ -6598,7 +6598,7 @@ Predicting latency for pp:[45, 46] with interference:[[43, 44]]
 290
 Latency for path:[45, 46, 47, 48] is 290.000000
 
-{'node1': 5325, 'node3': 5355, 'node4': 5355}
+{'node1': 320, 'node3': 330, 'node4': 330}
 Placing vertex:7 on selected node:node1
 
 
@@ -6849,7 +6849,7 @@ Predicting latency for pp:[45, 46] with interference:[[43, 44]]
 290
 Latency for path:[45, 46, 47, 48] is 290.000000
 
-{'node1': 5370, 'node3': 5400, 'node4': 5400}
+{'node1': 320, 'node3': 330, 'node4': 330}
 Placing vertex:15 on selected node:node1
 
 
@@ -7029,7 +7029,7 @@ Predicting latency for pp:[45, 46] with interference:[[43, 44]]
 290
 Latency for path:[45, 46, 47, 48] is 290.000000
 
-{'node3': 5445, 'node4': 5445}
+{'node3': 330, 'node4': 330}
 Placing vertex:23 on selected node:node3
 
 
@@ -7298,7 +7298,7 @@ Predicting latency for pp:[45, 46] with interference:[[23], [23], [23], [43, 44]
 290
 Latency for path:[45, 46, 47, 48] is 290.000000
 
-{'node2': 5490, 'node3': 5520, 'node4': 5520}
+{'node2': 330, 'node3': 330, 'node4': 330}
 Placing vertex:31 on selected node:node2
 
 
@@ -7567,7 +7567,7 @@ Predicting latency for pp:[45, 46] with interference:[[23], [23], [23], [43, 44]
 290
 Latency for path:[45, 46, 47, 48] is 290.000000
 
-{'node2': 5535, 'node3': 5565, 'node4': 5565}
+{'node2': 330, 'node3': 330, 'node4': 330}
 Placing vertex:39 on selected node:node2
 
 
@@ -7755,7 +7755,7 @@ Predicting latency for pp:[47] with interference:[[47], [47]]
 15
 Latency for path:[45, 46, 47, 48] is 315.000000
 
-{'node3': 5590, 'node4': 5610}
+{'node3': 330, 'node4': 330}
 Placing vertex:47 on selected node:node3
 
 
@@ -7945,7 +7945,7 @@ Predicting latency for pp:[45, 46, 47] with interference:[[23], [23], [23], [47]
 305
 Latency for path:[45, 46, 47, 48] is 305.000000
 
-{'node1': 5665, 'node4': 5695}
+{'node1': 345, 'node4': 355}
 Placing vertex:8 on selected node:node1
 
 
@@ -8135,7 +8135,7 @@ Predicting latency for pp:[45, 46, 47] with interference:[[23], [23], [23], [47]
 305
 Latency for path:[45, 46, 47, 48] is 305.000000
 
-{'node1': 5740, 'node4': 5770}
+{'node1': 345, 'node4': 355}
 Placing vertex:16 on selected node:node1
 
 
@@ -8325,7 +8325,7 @@ Predicting latency for pp:[45, 46, 47] with interference:[[23], [23], [23], [47]
 305
 Latency for path:[45, 46, 47, 48] is 305.000000
 
-{'node3': 5815, 'node4': 5845}
+{'node3': 355, 'node4': 365}
 Placing vertex:24 on selected node:node3
 
 
@@ -8515,7 +8515,7 @@ Predicting latency for pp:[45, 46, 47] with interference:[[23, 24], [23, 24], [2
 305
 Latency for path:[45, 46, 47, 48] is 305.000000
 
-{'node2': 5890, 'node4': 5920}
+{'node2': 355, 'node4': 355}
 Placing vertex:32 on selected node:node2
 
 
@@ -8705,7 +8705,7 @@ Predicting latency for pp:[45, 46, 47] with interference:[[23, 24], [23, 24], [2
 305
 Latency for path:[45, 46, 47, 48] is 305.000000
 
-{'node2': 5965, 'node4': 5995}
+{'node2': 355, 'node4': 355}
 Placing vertex:40 on selected node:node2
 
 
@@ -8895,7 +8895,7 @@ Predicting latency for pp:[48] with interference:[[48], [48]]
 25
 Latency for path:[45, 46, 47, 48] is 340.000000
 
-{'node3': 6040, 'node4': 6070}
+{'node3': 355, 'node4': 365}
 Placing vertex:48 on selected node:node3
 
 

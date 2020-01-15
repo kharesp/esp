@@ -53,7 +53,7 @@ Latency for path:[3, 4, 7, 8] is 15.000000
 
 Latency for path:[5, 6, 7, 8] is 0.000000
 
-{'node1': 91, 'node2': 50}
+{'node1': 50, 'node2': 35}
 Placing vertex:3 on selected node:node2
 
 
@@ -107,7 +107,7 @@ Predicting latency for pp:[5] with interference:[]
 20
 Latency for path:[5, 6, 7, 8] is 20.000000
 
-{'node1': 115, 'node2': 116, 'node3': 70}
+{'node1': 53, 'node2': 40, 'node3': 35}
 Placing vertex:5 on selected node:node3
 
 
@@ -183,7 +183,7 @@ Predicting latency for pp:[5] with interference:[]
 20
 Latency for path:[5, 6, 7, 8] is 20.000000
 
-{'node1': 340, 'node2': 428, 'node3': 427, 'node4': 350}
+{'node1': 305, 'node2': 356, 'node3': 355, 'node4': 315}
 Placing vertex:2 on selected node:node1
 
 
@@ -259,7 +259,7 @@ Predicting latency for pp:[5] with interference:[]
 20
 Latency for path:[5, 6, 7, 8] is 20.000000
 
-{'node1': 697, 'node2': 610, 'node3': 697, 'node4': 620}
+{'node1': 340, 'node2': 305, 'node3': 335, 'node4': 305}
 Placing vertex:4 on selected node:node2
 
 
@@ -335,7 +335,7 @@ Predicting latency for pp:[6] with interference:[]
 270
 Latency for path:[5, 6, 7, 8] is 300.000000
 
-{'node1': 967, 'node2': 992, 'node3': 880, 'node4': 890}
+{'node1': 345, 'node2': 346, 'node3': 305, 'node4': 305}
 Placing vertex:6 on selected node:node3
 
 
@@ -423,7 +423,7 @@ Predicting latency for pp:[7] with interference:[[7], [7]]
 44.872477735957276
 Latency for path:[5, 6, 7, 8] is 344.872478
 
-{'node1': 1029, 'node2': 1049, 'node3': 1045, 'node4': 1044}
+{'node1': 348, 'node2': 357, 'node3': 358, 'node4': 359}
 Placing vertex:7 on selected node:node1
 
 
@@ -463,7 +463,7 @@ Predicting latency for pp:[3, 4, 8] with interference:[[8], [8]]
 349.7253427725809
 Predicting latency for pp:[7] with interference:[[1, 2, 7], [7]]
 43.05596642377675
-Latency for path:[3, 4, 7, 8] is 402.781309
+Latency for path:[3, 4, 7, 8] is 412.781309
 
 Predicting latency for pp:[5, 6] with interference:[]
 290
@@ -495,7 +495,7 @@ Predicting latency for pp:[5, 6, 8] with interference:[[8], [8]]
 349.00319407202653
 Predicting latency for pp:[7] with interference:[[1, 2, 7], [7]]
 43.05596642377675
-Latency for path:[5, 6, 7, 8] is 402.059160
+Latency for path:[5, 6, 7, 8] is 412.059160
 
 
 Testing placement of vertex:8 on node:node4
@@ -523,7 +523,7 @@ Predicting latency for pp:[8] with interference:[[8], [8]]
 53.54631841846424
 Latency for path:[5, 6, 7, 8] is 406.602285
 
-{'node1': 1112, 'node2': 1219, 'node3': 1214, 'node4': 1220}
+{'node1': 378, 'node2': 412, 'node3': 412, 'node4': 411}
 Placing vertex:8 on selected node:node1
 
 

@@ -1,4 +1,5 @@
 node;vertices
-node1;v1,v3,v5,v9,v2,v4,v6,v10,v7,v8,
-node2;v11,v13,v12,v14,v15,v16,
+node1;v1,v3,v5,v9,v11,v2,v4,
+node2;v13,v6,v10,v12,v14,
+node3;v7,v15,v8,v16,
 node8;v0,v17,

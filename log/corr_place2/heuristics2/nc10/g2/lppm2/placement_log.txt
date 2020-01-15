@@ -71,7 +71,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 50, 'node2': 50}
+{'node1': 35, 'node2': 35}
 Placing vertex:3 on selected node:node1
 
 
@@ -121,7 +121,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 70, 'node2': 70}
+{'node1': 35, 'node2': 35}
 Placing vertex:5 on selected node:node1
 
 
@@ -175,7 +175,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 105, 'node2': 105}
+{'node1': 35, 'node2': 35}
 Placing vertex:9 on selected node:node1
 
 
@@ -233,7 +233,7 @@ Latency for path:[11, 12, 15, 16] is 15.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 372, 'node2': 120}
+{'node1': 77, 'node2': 35}
 Placing vertex:11 on selected node:node2
 
 
@@ -323,7 +323,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 390, 'node2': 140, 'node3': 140}
+{'node1': 78, 'node2': 35, 'node3': 35}
 Placing vertex:13 on selected node:node2
 
 
@@ -417,7 +417,7 @@ Predicting latency for pp:[13] with interference:[[11]]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 410, 'node2': 420, 'node3': 420}
+{'node1': 305, 'node2': 315, 'node3': 315}
 Placing vertex:2 on selected node:node1
 
 
@@ -511,7 +511,7 @@ Predicting latency for pp:[13] with interference:[[11]]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 680, 'node2': 690, 'node3': 690}
+{'node1': 305, 'node2': 305, 'node3': 305}
 Placing vertex:4 on selected node:node1
 
 
@@ -605,7 +605,7 @@ Predicting latency for pp:[13] with interference:[[11]]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 950, 'node2': 960, 'node3': 960}
+{'node1': 305, 'node2': 305, 'node3': 305}
 Placing vertex:6 on selected node:node1
 
 
@@ -699,7 +699,7 @@ Predicting latency for pp:[13] with interference:[[11]]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 1220, 'node2': 1230, 'node3': 1230}
+{'node1': 305, 'node2': 315, 'node3': 315}
 Placing vertex:10 on selected node:node1
 
 
@@ -793,7 +793,7 @@ Predicting latency for pp:[13] with interference:[[11]]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 2290, 'node2': 1490, 'node3': 1500}
+{'node1': 464, 'node2': 305, 'node3': 305}
 Placing vertex:12 on selected node:node2
 
 
@@ -887,7 +887,7 @@ Predicting latency for pp:[14] with interference:[]
 270
 Latency for path:[13, 14, 15, 16] is 300.000000
 
-{'node1': 2560, 'node2': 1760, 'node3': 1770}
+{'node1': 469, 'node2': 305, 'node3': 305}
 Placing vertex:14 on selected node:node2
 
 
@@ -989,7 +989,7 @@ Predicting latency for pp:[13, 14] with interference:[[11, 12]]
 290
 Latency for path:[13, 14, 15, 16] is 290.000000
 
-{'node1': 1805, 'node2': 2100, 'node3': 1835}
+{'node1': 320, 'node2': 383, 'node3': 330}
 Placing vertex:7 on selected node:node1
 
 
@@ -1091,7 +1091,7 @@ Predicting latency for pp:[15] with interference:[[15], [15]]
 15
 Latency for path:[13, 14, 15, 16] is 315.000000
 
-{'node1': 2413, 'node2': 1860, 'node3': 1880}
+{'node1': 412, 'node2': 330, 'node3': 330}
 Placing vertex:15 on selected node:node2
 
 
@@ -1199,7 +1199,7 @@ Predicting latency for pp:[13, 14, 15] with interference:[[15], [11, 12, 15]]
 305
 Latency for path:[13, 14, 15, 16] is 305.000000
 
-{'node1': 1935, 'node2': 2389, 'node3': 1965}
+{'node1': 345, 'node2': 429, 'node3': 355}
 Placing vertex:8 on selected node:node1
 
 
@@ -1225,7 +1225,7 @@ Predicting latency for pp:[9, 10, 16] with interference:[[1, 2, 7, 8], [3, 4, 7,
 403.6910291043585
 Predicting latency for pp:[15] with interference:[[11, 12, 15], [13, 14, 15]]
 15
-Latency for path:[9, 10, 15, 16] is 428.691029
+Latency for path:[9, 10, 15, 16] is 438.691029
 
 Predicting latency for pp:[11, 12, 15] with interference:[[15], [13, 14, 15]]
 300
@@ -1305,7 +1305,7 @@ Predicting latency for pp:[16] with interference:[[16], [16]]
 25
 Latency for path:[13, 14, 15, 16] is 340.000000
 
-{'node1': 2544, 'node2': 2010, 'node3': 2040}
+{'node1': 438, 'node2': 355, 'node3': 365}
 Placing vertex:16 on selected node:node2
 
 

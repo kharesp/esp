@@ -71,7 +71,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 91, 'node2': 50}
+{'node1': 50, 'node2': 35}
 Placing vertex:3 on selected node:node2
 
 
@@ -143,7 +143,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 115, 'node2': 116, 'node3': 70}
+{'node1': 53, 'node2': 40, 'node3': 35}
 Placing vertex:5 on selected node:node3
 
 
@@ -245,7 +245,7 @@ Latency for path:[11, 12, 15, 16] is 0.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 155, 'node2': 146, 'node3': 150, 'node4': 105}
+{'node1': 60, 'node2': 50, 'node3': 53, 'node4': 35}
 Placing vertex:9 on selected node:node4
 
 
@@ -381,7 +381,7 @@ Latency for path:[11, 12, 15, 16] is 15.000000
 
 Latency for path:[13, 14, 15, 16] is 0.000000
 
-{'node1': 161, 'node2': 166, 'node3': 166, 'node4': 161, 'node5': 120}
+{'node1': 50, 'node2': 38, 'node3': 40, 'node4': 50, 'node5': 35}
 Placing vertex:11 on selected node:node5
 
 
@@ -555,7 +555,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 185, 'node2': 186, 'node3': 187, 'node4': 185, 'node5': 186, 'node6': 140}
+{'node1': 53, 'node2': 40, 'node3': 43, 'node4': 53, 'node5': 40, 'node6': 35}
 Placing vertex:13 on selected node:node6
 
 
@@ -769,7 +769,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 410, 'node2': 498, 'node3': 497, 'node4': 494, 'node5': 498, 'node6': 497, 'node7': 420}
+{'node1': 305, 'node2': 356, 'node3': 355, 'node4': 350, 'node5': 356, 'node6': 355, 'node7': 315}
 Placing vertex:2 on selected node:node1
 
 
@@ -983,7 +983,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 767, 'node2': 680, 'node3': 767, 'node4': 764, 'node5': 768, 'node6': 767, 'node7': 690}
+{'node1': 340, 'node2': 305, 'node3': 335, 'node4': 330, 'node5': 336, 'node6': 335, 'node7': 305}
 Placing vertex:4 on selected node:node2
 
 
@@ -1197,7 +1197,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 1037, 'node2': 1062, 'node3': 950, 'node4': 1034, 'node5': 1038, 'node6': 1037, 'node7': 960}
+{'node1': 345, 'node2': 346, 'node3': 305, 'node4': 335, 'node5': 341, 'node6': 340, 'node7': 305}
 Placing vertex:6 on selected node:node3
 
 
@@ -1411,7 +1411,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 1307, 'node2': 1332, 'node3': 1326, 'node4': 1220, 'node5': 1308, 'node6': 1307, 'node7': 1230}
+{'node1': 360, 'node2': 361, 'node3': 360, 'node4': 305, 'node5': 356, 'node6': 355, 'node7': 315}
 Placing vertex:10 on selected node:node4
 
 
@@ -1625,7 +1625,7 @@ Predicting latency for pp:[13] with interference:[]
 20
 Latency for path:[13, 14, 15, 16] is 20.000000
 
-{'node1': 1577, 'node2': 1602, 'node3': 1596, 'node4': 1577, 'node5': 1490, 'node6': 1577, 'node7': 1500}
+{'node1': 340, 'node2': 341, 'node3': 340, 'node4': 340, 'node5': 305, 'node6': 335, 'node7': 305}
 Placing vertex:12 on selected node:node5
 
 
@@ -1839,7 +1839,7 @@ Predicting latency for pp:[14] with interference:[]
 270
 Latency for path:[13, 14, 15, 16] is 300.000000
 
-{'node1': 1847, 'node2': 1872, 'node3': 1866, 'node4': 1847, 'node5': 1872, 'node6': 1760, 'node7': 1770}
+{'node1': 345, 'node2': 346, 'node3': 345, 'node4': 345, 'node5': 346, 'node6': 305, 'node7': 305}
 Placing vertex:14 on selected node:node6
 
 
@@ -2077,7 +2077,7 @@ Predicting latency for pp:[13, 14] with interference:[]
 290
 Latency for path:[13, 14, 15, 16] is 290.000000
 
-{'node1': 1909, 'node2': 1929, 'node3': 1925, 'node4': 1984, 'node5': 2007, 'node6': 2001, 'node7': 1924}
+{'node1': 348, 'node2': 357, 'node3': 358, 'node4': 371, 'node5': 372, 'node6': 371, 'node7': 359}
 Placing vertex:7 on selected node:node1
 
 
@@ -2343,7 +2343,7 @@ Predicting latency for pp:[15] with interference:[[15], [15]]
 44.872477735957276
 Latency for path:[13, 14, 15, 16] is 344.872478
 
-{'node1': 2305, 'node2': 2157, 'node3': 2151, 'node4': 2058, 'node5': 2078, 'node6': 2074, 'node7': 2073}
+{'node1': 399, 'node2': 384, 'node3': 384, 'node4': 348, 'node5': 357, 'node6': 358, 'node7': 359}
 Placing vertex:15 on selected node:node4
 
 
@@ -2399,7 +2399,7 @@ Predicting latency for pp:[3, 4, 8] with interference:[[8], [8]]
 349.7253427725809
 Predicting latency for pp:[7] with interference:[[1, 2, 7], [7]]
 43.05596642377675
-Latency for path:[3, 4, 7, 8] is 402.781309
+Latency for path:[3, 4, 7, 8] is 412.781309
 
 Predicting latency for pp:[5, 6] with interference:[]
 290
@@ -2447,7 +2447,7 @@ Predicting latency for pp:[5, 6, 8] with interference:[[8], [8]]
 349.00319407202653
 Predicting latency for pp:[7] with interference:[[1, 2, 7], [7]]
 43.05596642377675
-Latency for path:[5, 6, 7, 8] is 402.059160
+Latency for path:[5, 6, 7, 8] is 412.059160
 
 Predicting latency for pp:[9, 10, 15] with interference:[[15], [15]]
 348.26397168646884
@@ -2633,7 +2633,7 @@ Predicting latency for pp:[15] with interference:[[9, 10, 15], [15]]
 43.05596642377675
 Latency for path:[13, 14, 15, 16] is 343.055966
 
-{'node1': 2141, 'node2': 2249, 'node3': 2243, 'node4': 2483, 'node5': 2329, 'node6': 2323, 'node7': 2249}
+{'node1': 378, 'node2': 412, 'node3': 412, 'node4': 452, 'node5': 422, 'node6': 422, 'node7': 411}
 Placing vertex:8 on selected node:node1
 
 
@@ -2831,7 +2831,7 @@ Predicting latency for pp:[11, 12, 16] with interference:[[16], [16]]
 349.7253427725809
 Predicting latency for pp:[15] with interference:[[9, 10, 15], [15]]
 43.05596642377675
-Latency for path:[11, 12, 15, 16] is 402.781309
+Latency for path:[11, 12, 15, 16] is 412.781309
 
 Predicting latency for pp:[13, 14] with interference:[]
 290
@@ -2879,7 +2879,7 @@ Predicting latency for pp:[13, 14, 16] with interference:[[16], [16]]
 349.00319407202653
 Predicting latency for pp:[15] with interference:[[9, 10, 15], [15]]
 43.05596642377675
-Latency for path:[13, 14, 15, 16] is 402.059160
+Latency for path:[13, 14, 15, 16] is 412.059160
 
 
 Testing placement of vertex:16 on node:node7
@@ -2923,7 +2923,7 @@ Predicting latency for pp:[16] with interference:[[16], [16]]
 53.54631841846424
 Latency for path:[13, 14, 15, 16] is 406.602285
 
-{'node1': 2576, 'node2': 2412, 'node3': 2406, 'node4': 2224, 'node5': 2331, 'node6': 2326, 'node7': 2332}
+{'node1': 459, 'node2': 422, 'node3': 422, 'node4': 378, 'node5': 412, 'node6': 412, 'node7': 411}
 Placing vertex:16 on selected node:node4
 
 
